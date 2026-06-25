@@ -1,0 +1,272 @@
+/* ══════════════════════════════════════════════════════════
+   GÜRGENTEKSTİL — Admin Panel CSS
+   Mobile-first, overflow-x: none, tam responsive
+══════════════════════════════════════════════════════════ */
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── Admin layout ── */
+.adm-root {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* ── Sidebar ── */
+.adm-sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: #0f1824;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Sidebar nav link ── */
+.adm-link {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.adm-link:hover  { color: #fff; background: rgba(255,255,255,0.07); }
+.adm-link.active { color: #fff; background: rgba(255,255,255,0.12); }
+
+/* ── Main content ── */
+.adm-main {
+  flex: 1;
+  min-width: 0;           /* flex child overflow fix */
+  overflow-x: hidden;
+  padding: 1.25rem;
+  padding-top: calc(56px + 1.25rem); /* mobil topbar yüksekliği */
+}
+@media (min-width: 1024px) {
+  .adm-main { padding: 2rem; padding-top: 2rem; }
+}
+
+/* ── İçerik max-width ── */
+.adm-content {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.adm-content-sm {
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Sayfa başlık alanı ── */
+.adm-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Kart ── */
+.adm-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.adm-card-head {
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  background: #fafafa;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #374151;
+}
+.adm-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Tablo ── */
+.adm-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+.adm-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.adm-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  white-space: nowrap;
+}
+.adm-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: middle;
+}
+.adm-table tr:last-child td { border-bottom: none; }
+.adm-table tr:hover td { background: #fafafa; }
+
+/* ── Input ── */
+.adm-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  color: #111827;
+  background: #fff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.adm-input:focus {
+  border-color: #1a2332;
+  box-shadow: 0 0 0 3px rgba(26,35,50,0.08);
+}
+.adm-input::placeholder { color: #9ca3af; }
+textarea.adm-input { resize: vertical; min-height: 80px; }
+
+/* ── Buton ── */
+.adm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.18s, opacity 0.18s, box-shadow 0.18s;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.adm-btn-primary { background: #1a2332; color: #fff; }
+.adm-btn-primary:hover { background: #232e40; }
+.adm-btn-danger  { background: #dc2626; color: #fff; }
+.adm-btn-danger:hover { background: #b91c1c; }
+.adm-btn-ghost   { background: #f3f4f6; color: #374151; }
+.adm-btn-ghost:hover { background: #e5e7eb; }
+.adm-btn-outline { background: #fff; color: #dc2626; border: 1.5px solid #fca5a5; }
+.adm-btn-outline:hover { background: #fef2f2; }
+.adm-btn-sm  { padding: 0.5rem 0.875rem; font-size: 0.8125rem; }
+.adm-btn-lg  { padding: 1rem 1.5rem; font-size: 1rem; }
+.adm-btn-full { width: 100%; }
+.adm-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Badge ── */
+.adm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.625rem;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.adm-badge-green  { background: #dcfce7; color: #16a34a; }
+.adm-badge-gray   { background: #f3f4f6; color: #6b7280; }
+.adm-badge-yellow { background: #fef9c3; color: #854d0e; }
+.adm-badge-blue   { background: #e0f2fe; color: #0284c7; }
+
+/* ── Ürün listesi kart (mobilde tablo yerine kart) ── */
+.adm-product-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  min-width: 0;
+}
+.adm-product-item:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.adm-product-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+.adm-product-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Spin animation ── */
+@keyframes adm-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.adm-spin { animation: adm-spin 1s linear infinite; }
+
+/* ── Mobile overflow fix ── */
+@media (max-width: 1023px) {
+  .adm-sidebar { display: none; }
+}
+@media (min-width: 1024px) {
+  .adm-main { padding-top: 2rem !important; }
+  .lg\:hidden { display: none !important; }
+}
+
+/* ── Form grid responsive ── */
+.adm-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+}
+@media (min-width: 480px) {
+  .adm-grid-2 { grid-template-columns: 1fr 1fr; }
+}

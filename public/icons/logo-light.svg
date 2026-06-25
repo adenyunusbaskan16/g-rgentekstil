@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" fill="none">
+  <!-- Sol dikey gold aksan çizgisi -->
+  <rect x="0" y="5" width="3" height="34" rx="1.5" fill="#b8965a"/>
+  <!-- G harfi — serif bold -->
+  <text x="10" y="36" font-family="Georgia, 'Times New Roman', serif" font-size="33" font-weight="900" fill="#b8965a" letter-spacing="-0.5">G</text>
+  <!-- ÜRGENTEKSTIL -->
+  <text x="38" y="23" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="700" fill="#0a1520" letter-spacing="0.8">ÜRGENTEKSTIL</text>
+  <!-- Denizli alt yazı -->
+  <text x="38" y="36" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="8.5" font-weight="400" fill="rgba(10,21,32,0.45)" letter-spacing="2">DENİZLİ · TÜRKİYE</text>
+</svg>
