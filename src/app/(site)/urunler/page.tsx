@@ -244,7 +244,7 @@ export default async function UrunlerPage() {
                               İncele
                             </Link>
                             <a
-                              href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(`Merhaba, ${p.name_tr} için teklif almak istiyorum.`)}`}
+                              href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(`Merhabalar, İnternet Sitenizden Ulaşıyorum. ${p.name_tr} hakkında bilgi almak istiyorum.`)}`}
                               target="_blank" rel="noopener noreferrer"
                               className="btn btn-wa btn-sm" style={{ flex: 1, fontSize: "0.7rem" }}
                             >

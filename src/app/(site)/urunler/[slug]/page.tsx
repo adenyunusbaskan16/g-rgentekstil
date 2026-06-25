@@ -111,7 +111,7 @@ export default async function UrunDetayPage({
 
   const description = product.description_tr || autoDescription(product);
   const waMsg = encodeURIComponent(
-    `Merhaba Gürgentekstil, ${product.name_tr}${product.size ? ` (${product.size})` : ""} için teklif almak istiyorum.`
+    `Merhabalar, İnternet Sitenizden Ulaşıyorum. ${product.name_tr}${product.size ? ` (${product.size})` : ""} hakkında bilgi almak istiyorum.`
   );
   const waUrl = `https://wa.me/${COMPANY.whatsapp}?text=${waMsg}`;
 

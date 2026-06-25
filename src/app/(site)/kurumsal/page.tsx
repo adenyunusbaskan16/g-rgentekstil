@@ -283,7 +283,7 @@ export default function KurumsalPage() {
               { v: "450 m²",    l: "Kapalı Üretim\nAlanı" },
               { v: "600 m²",    l: "Toplam\nAlan" },
               { v: "1.216 ton", l: "Yıllık Dokuma\nKapasitesi" },
-              { v: "6 Kişi",    l: "Uzman\nEkip" },
+              { v: "B2B",       l: "Toptancı &\nİhracat" },
             ].map((s) => (
               <div key={s.l} className="stat-item">
                 <p className="stat-val" style={{ whiteSpace: "pre-line" }}>{s.v}</p>

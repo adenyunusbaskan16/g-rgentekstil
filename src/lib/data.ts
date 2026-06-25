@@ -52,8 +52,8 @@ export const PRODUCT_SIZES = [
 ] as const;
 
 export const WHATSAPP_TEMPLATE = {
-  tr: "Merhaba Gürgentekstil, havlu ürünleri için teklif almak istiyorum.",
-  en: "Hello Gurgen Tekstil, I would like to get a quote for towel products.",
+  tr: "Merhabalar, İnternet Sitenizden Ulaşıyorum. Havlu ürünleri hakkında bilgi almak istiyorum.",
+  en: "Hello, I am reaching you from your website. I would like to get information about your towel products.",
 };
 
 export function getWhatsAppUrl(lang: "tr" | "en" = "tr") {

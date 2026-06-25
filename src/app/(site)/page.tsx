@@ -657,7 +657,7 @@ export default async function HomePage() {
                     )}
                     <a
                       href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(
-                        `Merhaba, ${p.name_tr} için teklif almak istiyorum.`
+                        `Merhabalar, İnternet Sitenizden Ulaşıyorum. ${p.name_tr} hakkında bilgi almak istiyorum.`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"

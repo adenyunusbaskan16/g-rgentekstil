@@ -28,6 +28,7 @@ const steps = [
   { n: "03", t: "Kalite Kontrol",     d: "Kalite kontrol ekipmanlarıyla üretim boyunca denetim." },
   { n: "04", t: "Tartım & Paketleme", d: "Düzine veya çuval bazlı tartım ve paketleme." },
   { n: "05", t: "Stok & Sevkiyat",   d: "Hazır stok yönetimi ve zamanında teslimat." },
+  { n: "06", t: "Müşteri Teslimi",   d: "Sipariş tamamlama ve müşteri memnuniyeti takibi." },
 ];
 
 export default function UretimKapasitesiPage() {

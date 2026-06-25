@@ -201,24 +201,54 @@ export default function IletisimPage() {
                 >
                   Adres
                 </p>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+
+                {/* İmalathane */}
+                <a
+                  href="https://maps.app.goo.gl/YEYEtyKA69TTFUoA9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", textDecoration: "none", marginBottom: "1.25rem" }}
+                >
                   <MapPin size={16} color="var(--gold)" style={{ marginTop: 2, flexShrink: 0 }} />
                   <div>
-                    <p
-                      style={{
-                        fontSize: "0.875rem",
-                        fontWeight: 700,
-                        color: "var(--navy)",
-                        marginBottom: "0.3rem",
-                      }}
-                    >
+                    <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.2rem" }}>
+                      İmalathane
+                    </p>
+                    <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--navy)", marginBottom: "0.2rem" }}>
                       Gürgentekstil
                     </p>
                     <p style={{ fontSize: "0.8125rem", color: "var(--muted)", lineHeight: 1.7 }}>
-                      {COMPANY.address}
+                      Sümer Mah. 2507 Sok. No:45/B<br />Merkezefendi / Denizli
+                    </p>
+                    <p style={{ fontSize: "0.75rem", color: "var(--gold)", marginTop: "0.3rem", fontWeight: 600 }}>
+                      Yol tarifi al →
                     </p>
                   </div>
-                </div>
+                </a>
+
+                {/* Konfeksiyon */}
+                <a
+                  href="https://maps.app.goo.gl/dSsCnLMB7D6r1aoe6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", textDecoration: "none", borderTop: "1px solid var(--border)", paddingTop: "1.25rem" }}
+                >
+                  <MapPin size={16} color="var(--gold)" style={{ marginTop: 2, flexShrink: 0 }} />
+                  <div>
+                    <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--gold)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.2rem" }}>
+                      Konfeksiyon
+                    </p>
+                    <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--navy)", marginBottom: "0.2rem" }}>
+                      Gürgentekstil Konfeksiyon
+                    </p>
+                    <p style={{ fontSize: "0.8125rem", color: "var(--muted)", lineHeight: 1.7 }}>
+                      Merkezefendi / Denizli
+                    </p>
+                    <p style={{ fontSize: "0.75rem", color: "var(--gold)", marginTop: "0.3rem", fontWeight: 600 }}>
+                      Yol tarifi al →
+                    </p>
+                  </div>
+                </a>
               </div>
 
               {/* Çalışma Saatleri */}
