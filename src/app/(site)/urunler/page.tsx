@@ -5,6 +5,7 @@ import { MessageCircle, Package, Ruler, ChevronRight, ArrowRight } from "lucide-
 import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
+import CategoryNav from "@/components/ui/CategoryNav";
 
 export const revalidate = 60; // Her 60 saniyede yenile
 
@@ -85,21 +86,7 @@ export default async function UrunlerPage() {
 
       {/* ── Sticky Kategori Nav ── */}
       {categories.length > 0 && (
-        <div className="cat-sticky-nav">
-          <div className="cat-sticky-nav-inner">
-            <div style={{ display: "flex", minWidth: "max-content" }}>
-              {categories.map((c) => (
-                <a
-                  key={c.slug}
-                  href={`#${c.slug}`}
-                  className="cat-sticky-nav-item"
-                >
-                  {c.name_tr}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        <CategoryNav categories={categories} />
       )}
 
       {/* ── Ürün Listesi ── */}
