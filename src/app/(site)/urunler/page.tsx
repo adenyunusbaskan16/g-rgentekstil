@@ -6,6 +6,8 @@ import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 
+export const revalidate = 60; // Her 60 saniyede yenile
+
 export const metadata: Metadata = {
   title: "Toptan Havlu Kataloğu — El, Yüz, Banyo, Mutfak | Gürgentekstil",
   description:

@@ -12,6 +12,8 @@ import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaProduct, schemaBreadcrumb, schemaOrganization } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
 
+export const revalidate = 60; // Her 60 saniyede yenile
+
 /* ─── Otomatik açıklama üretimi (DB'de yoksa) ─── */
 function autoDescription(p: {
   name_tr: string;

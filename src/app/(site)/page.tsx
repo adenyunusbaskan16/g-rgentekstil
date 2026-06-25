@@ -14,6 +14,8 @@ import {
 } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
 
+export const revalidate = 60; // Her 60 saniyede yenile
+
 export const metadata: Metadata = {
   title: "Gürgentekstil | Denizli Toptan Havlu Üretimi ve Tedariki",
   description:
