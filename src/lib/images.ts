@@ -7,11 +7,11 @@
 export const IMAGES = {
 
   // ── HERO — Kullanıcının eklediği özel görsel ─────────────────────
-  hero: "/images/hero-towel.jpg",
+  hero: "/images/hero-towel.webp",
 
   // ── ÜRETİM / HAKKIMIZDA ──────────────────────────────────────────
-  factory:    "/images/imalathane.png",
-  imalathane: "/images/imalathane.png",
+  factory:    "/images/imalathane.webp",
+  imalathane: "/images/imalathane.webp",
   weaving:    "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1000&q=80&auto=format&fit=crop",
   towelStack: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1000&q=80&auto=format&fit=crop",
   yarn:       "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=900&q=80&auto=format&fit=crop",

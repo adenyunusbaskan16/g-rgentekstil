@@ -159,7 +159,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/hero-towel.jpg"
+          href="/images/hero-towel.webp"
           fetchPriority="high"
         />
       </head>
