@@ -108,43 +108,27 @@ const nextConfig: NextConfig = {
   /* ── Redirects ── */
   async redirects() {
     return [
-      // www → non-www (ana domain gürgentekstil.com)
-      {
-        source: "/(.*)",
-        has: [{ type: "host", value: "www.gürgentekstil.com" }],
-        destination: "https://gürgentekstil.com/:path*",
-        permanent: true,
-      },
-      // www.xn-- (Punycode www) → gürgentekstil.com
+      // www.xn-- (Punycode www) → xn--grgentekstil-dlb.com (ana domain)
       {
         source: "/(.*)",
         has: [{ type: "host", value: "www.xn--grgentekstil-dlb.com" }],
-        destination: "https://gürgentekstil.com/:path*",
+        destination: "https://xn--grgentekstil-dlb.com/:path*",
         permanent: true,
       },
-      // xn-- (Punycode non-www) → gürgentekstil.com
-      {
-        source: "/(.*)",
-        has: [{ type: "host", value: "xn--grgentekstil-dlb.com" }],
-        destination: "https://gürgentekstil.com/:path*",
-        permanent: true,
-      },
-      // gurgentekstil.com (ASCII) → gürgentekstil.com
+      // gurgentekstil.com (ASCII, ü'süz) → xn--grgentekstil-dlb.com
       {
         source: "/(.*)",
         has: [{ type: "host", value: "gurgentekstil.com" }],
-        destination: "https://gürgentekstil.com/:path*",
+        destination: "https://xn--grgentekstil-dlb.com/:path*",
         permanent: true,
       },
-      // www.gurgentekstil.com → gürgentekstil.com
+      // www.gurgentekstil.com → xn--grgentekstil-dlb.com
       {
         source: "/(.*)",
         has: [{ type: "host", value: "www.gurgentekstil.com" }],
-        destination: "https://gürgentekstil.com/:path*",
+        destination: "https://xn--grgentekstil-dlb.com/:path*",
         permanent: true,
       },
-      // eski http → https (CDN/proxy olmadan çalışması için)
-      // Vercel/Cloudflare bunu otomatik yapar — bu sadece fallback
     ];
   },
 
