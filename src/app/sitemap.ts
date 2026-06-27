@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getProducts, getCategories } from "@/lib/products";
+import { getProducts } from "@/lib/products";
 
-const BASE = "https://gürgentekstil.com";
+const BASE = "https://xn--grgentekstil-dlb.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

@@ -11,9 +11,9 @@ const geistSans = Geist({
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://gürgentekstil.com"
+    ? "https://xn--grgentekstil-dlb.com"
     : (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000");
-const OG_IMAGE = `${process.env.NODE_ENV === "production" ? "https://gürgentekstil.com" : ""}/opengraph-image`;
+const OG_IMAGE = `${process.env.NODE_ENV === "production" ? "https://xn--grgentekstil-dlb.com" : ""}/opengraph-image`;
 
 /* ════════════════════════════════════════════
    VIEWPORT — theme-color, mobile optimization
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Gürgentekstil — Denizli Havlu Üretimi",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
@@ -120,9 +120,13 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
 
   /* ── Verification placeholders ── */
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
-  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 
   /* ── Robots ── */
   robots: {

@@ -31,8 +31,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [
-      "https://gürgentekstil.com/sitemap.xml",
+      "https://xn--grgentekstil-dlb.com/sitemap.xml",
     ],
-    host: "https://gürgentekstil.com",
+    host: "https://xn--grgentekstil-dlb.com",
   };
 }

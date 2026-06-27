@@ -6,7 +6,7 @@
 import { COMPANY } from "@/lib/data";
 
 // Schema'larda her zaman production URL kullan — SEO için kritik
-const BASE = "https://gürgentekstil.com";
+const BASE = "https://xn--grgentekstil-dlb.com";
 
 /* ── Organization Schema ─────────────────────────────────── */
 export function schemaOrganization() {
@@ -78,7 +78,7 @@ export function schemaOrganization() {
 export function schemaLocalBusiness() {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "Manufacturer", "TextilIndustry"],
+    "@type": ["LocalBusiness", "Manufacturer"],
     "@id": `${BASE}/#localbusiness`,
     name: "Gürgentekstil",
     description:

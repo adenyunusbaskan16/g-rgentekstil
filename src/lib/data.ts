@@ -62,6 +62,7 @@ export function getWhatsAppUrl(lang: "tr" | "en" = "tr") {
 }
 
 export function getPhoneUrl() {
+  // phone: "05325570971" → tel:+905325570971
   return `tel:+9${COMPANY.phone}`;
 }
 
