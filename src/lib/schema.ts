@@ -3,10 +3,10 @@
 // Google, ChatGPT, Gemini, Perplexity için GEO altyapısı
 // ══════════════════════════════════════════════════════════
 
-import { COMPANY } from "@/lib/data";
+import { COMPANY, SITE_URL } from "@/lib/data";
 
 // Schema'larda her zaman production URL kullan — SEO için kritik
-const BASE = "https://xn--grgentekstil-dlb.com";
+const BASE = SITE_URL;
 
 /* ── Organization Schema ─────────────────────────────────── */
 export function schemaOrganization() {
@@ -282,6 +282,26 @@ export function schemaItemList(
       name: item.name,
       url: item.url,
     })),
+  };
+}
+
+/* ── WebPage Schema (landing/kurumsal sayfalar için) ─────── */
+export function schemaWebPage(p: {
+  name: string;
+  description: string;
+  url: string;
+  inLanguage?: "tr" | "en";
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${p.url}#webpage`,
+    name: p.name,
+    description: p.description,
+    url: p.url,
+    inLanguage: p.inLanguage ?? "tr",
+    isPartOf: { "@id": `${BASE}/#website` },
+    about: { "@id": `${BASE}/#organization` },
   };
 }
 

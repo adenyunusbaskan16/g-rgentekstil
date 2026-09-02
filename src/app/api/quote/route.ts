@@ -1,8 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@/lib/supabase";
+import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import type { QuoteRequest } from "@/types";
 
+// Spam koruması: aynı IP'den 10 dakikada en fazla 3 teklif talebi
+const QUOTE_RATE_LIMIT = 3;
+const QUOTE_RATE_WINDOW_MS = 10 * 60 * 1000;
+
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const limit = rateLimit(`quote:${ip}`, QUOTE_RATE_LIMIT, QUOTE_RATE_WINDOW_MS);
+  if (!limit.ok) {
+    return NextResponse.json(
+      { success: false, error: "Çok fazla istek gönderildi. Lütfen birkaç dakika sonra tekrar deneyin." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const body = await req.json() as QuoteRequest;
 
@@ -22,11 +36,6 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-
-    const ip =
-      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-      req.headers.get("x-real-ip") ??
-      "unknown";
 
     const supabase = createServerClient();
     const { error } = await supabase.from("quote_requests").insert({

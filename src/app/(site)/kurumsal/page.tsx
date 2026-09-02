@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
-import { COMPANY, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
 import { schemaOrganization, schemaBreadcrumb } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description:
     "Gürgentekstil, Denizli Merkezefendi'de 450 m² kapalı üretim alanında el, yüz, ayak, mutfak ve banyo havlusu üreten kurumsal bir tekstil üreticisidir.",
   alternates: {
-    canonical: "https://gürgentekstil.com/kurumsal",
-    languages: { "tr": "https://gürgentekstil.com/kurumsal", "en": "https://gürgentekstil.com/en/about", "x-default": "https://gürgentekstil.com/kurumsal" },
+    canonical: `${SITE_URL}/kurumsal`,
+    languages: { "tr": `${SITE_URL}/kurumsal`, "en": `${SITE_URL}/en/about`, "x-default": `${SITE_URL}/kurumsal` },
   },
   openGraph: {
     title: "Hakkımızda — Gürgentekstil Denizli Havlu Üreticisi",
     description: "Denizli Merkezefendi'de kurulu üretim tesisimizle toptancılara, markalara ve ihracat müşterilerine hizmet veriyoruz.",
-    url: "https://gürgentekstil.com/kurumsal",
+    url: `${SITE_URL}/kurumsal`,
     type: "website",
     locale: "tr_TR",
   },
@@ -345,8 +345,8 @@ export default function KurumsalPage() {
 
       <JsonLd data={schemaOrganization()} />
       <JsonLd data={schemaBreadcrumb([
-        { name: "Ana Sayfa", url: "https://gürgentekstil.com" },
-        { name: "Kurumsal", url: "https://gürgentekstil.com/kurumsal" },
+        { name: "Ana Sayfa", url: `${SITE_URL}` },
+        { name: "Kurumsal", url: `${SITE_URL}/kurumsal` },
       ])} />
     </>
   );

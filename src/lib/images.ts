@@ -62,3 +62,23 @@ export const PRODUCT_FALLBACK_IMAGES = [
   IMAGES.products.p5,
   IMAGES.products.p6,
 ];
+
+// ════════════════════════════════════════════════════════════
+// OTEL ÜRÜNLERİ SAYFASI
+// Her ürün grubu KENDİ gerçek fotoğrafını kullanır — başka bir
+// üründen/kategoriden ödünç görsel yok. Henüz fotoğrafı olmayan
+// gruplar `undefined` bırakılır ve sayfada bir placeholder çerçeve
+// gösterilir (bkz. ImagePlaceholder bileşeni). Yeni fotoğraf
+// eklendiğinde sadece buradaki değeri güncellemeniz yeterli.
+// ════════════════════════════════════════════════════════════
+export const HOTEL_IMAGES = {
+  heroBg: IMAGES.towelStack, // dekoratif arka plan — ürün fotoğrafı değil
+  towel: ["/images/otel/otel-havlu.webp"],
+  footTowel: ["/images/otel/otel-ayak-havlusu.webp"],
+  bathrobe: ["/images/otel/otel-bornoz.webp"],
+  bedspread: ["/images/otel/otel-pike.jpg"],
+  duvetCover: ["/images/otel/otel-nevresim.jpg"],
+  bedsheet: ["/images/otel/otel-carsaf.jpg"],
+  beddingSet: ["/images/otel/otel-nevresim-takimi.png"],
+  pillowcase: ["/images/otel/otel-yastik-kilifi.jpg"],
+} as const;

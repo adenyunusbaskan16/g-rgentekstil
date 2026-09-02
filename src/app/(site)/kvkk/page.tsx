@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { COMPANY } from "@/lib/data";
+import { COMPANY, SITE_URL } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "KVKK ve Gizlilik Politikası | Gürgentekstil",
   description: "Gürgentekstil kişisel verilerin korunması ve gizlilik politikası.",
-  alternates: { canonical: "https://gürgentekstil.com/kvkk", languages: { en: "/en/privacy" } },
+  alternates: { canonical: `${SITE_URL}/kvkk`, languages: { en: "/en/privacy" } },
 };
 
 export default function KvkkPage() {

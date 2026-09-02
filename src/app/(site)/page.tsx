@@ -5,7 +5,7 @@ import {
   ArrowRight, MessageCircle, CheckCircle,
   Package, Ruler, Award, Truck, Settings, Users,
 } from "lucide-react";
-import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import {
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   description:
     "Gürgentekstil, Denizli'de toptan havlu, el havlusu, yüz havlusu ve banyo havlusu tedariki sunan üretici firmasıdır. WhatsApp ile teklif alın.",
   alternates: {
-    canonical: "https://gürgentekstil.com",
-    languages: { "tr": "https://gürgentekstil.com/", "en": "https://gürgentekstil.com/en", "x-default": "https://gürgentekstil.com/" },
+    canonical: `${SITE_URL}`,
+    languages: { "tr": `${SITE_URL}/`, "en": `${SITE_URL}/en`, "x-default": `${SITE_URL}/` },
   },
   openGraph: {
     title: "Gürgentekstil | Denizli Toptan Havlu Üretimi",
     description: "El, yüz, ayak, mutfak ve banyo havlusu — hazır stok ve özel üretim. Teklif için WhatsApp.",
-    url: "https://gürgentekstil.com",
+    url: `${SITE_URL}`,
     type: "website",
     locale: "tr_TR",
   },
@@ -839,7 +839,7 @@ export default async function HomePage() {
           >
             {[
               {
-                label: "OEKO-TEX",
+                label: "Sipariş Garantisi",
                 icon: (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="1.5">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -847,7 +847,7 @@ export default async function HomePage() {
                 ),
               },
               {
-                label: "ISO 9001",
+                label: "Kalite Kontrolü",
                 icon: (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="10"/>
@@ -974,7 +974,7 @@ export default async function HomePage() {
       <JsonLd data={schemaLocalBusiness()} />
       <JsonLd data={schemaWebSite()} />
       <JsonLd data={schemaBreadcrumb([
-        { name: "Ana Sayfa", url: "https://gürgentekstil.com" },
+        { name: "Ana Sayfa", url: `${SITE_URL}` },
       ])} />
       <JsonLd data={schemaFAQ([
         {

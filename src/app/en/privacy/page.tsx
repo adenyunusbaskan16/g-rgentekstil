@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { COMPANY } from "@/lib/data";
+import { COMPANY, SITE_URL } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Gurgen Tekstil",
   description: "Gurgen Tekstil privacy policy and personal data protection.",
-  alternates: { canonical: "https://gürgentekstil.com/en/privacy", languages: { tr: "/kvkk" } },
+  alternates: { canonical: `${SITE_URL}/en/privacy`, languages: { tr: "/kvkk" } },
 };
 
 export default function PrivacyPage() {

@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
-import { COMPANY, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About Us | Gurgen Tekstil Towel Manufacturer Denizli",
   description: "Gurgen Tekstil is a towel manufacturer based in Denizli Merkezefendi serving wholesale, brand and export customers.",
-  alternates: { canonical: "https://gürgentekstil.com/en/about", languages: { tr: "/kurumsal" } },
+  alternates: { canonical: `${SITE_URL}/en/about`, languages: { tr: "/kurumsal" } },
 };
 
 export default function AboutPage() {

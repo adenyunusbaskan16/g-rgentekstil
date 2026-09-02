@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/data";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -31,8 +32,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [
-      "https://xn--grgentekstil-dlb.com/sitemap.xml",
+      `${SITE_URL}/sitemap.xml`,
     ],
-    host: "https://xn--grgentekstil-dlb.com",
+    host: SITE_URL,
   };
 }

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
+import { SITE_URL } from "@/lib/data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,9 +12,9 @@ const geistSans = Geist({
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://xn--grgentekstil-dlb.com"
+    ? SITE_URL
     : (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000");
-const OG_IMAGE = `${process.env.NODE_ENV === "production" ? "https://xn--grgentekstil-dlb.com" : ""}/opengraph-image`;
+const OG_IMAGE = `${process.env.NODE_ENV === "production" ? SITE_URL : ""}/opengraph-image`;
 
 /* ════════════════════════════════════════════
    VIEWPORT — theme-color, mobile optimization

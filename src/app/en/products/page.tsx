@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Package, Ruler, ChevronRight } from "lucide-react";
-import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Wholesale Towels from Turkey | Gurgen Tekstil",
   description: "Hand, face, foot, kitchen and bath towels in various sizes — wholesale and custom production from Denizli, Turkey.",
-  alternates: { canonical: "https://gürgentekstil.com/en/products", languages: { tr: "/urunler" } },
+  alternates: { canonical: `${SITE_URL}/en/products`, languages: { tr: "/urunler" } },
 };
 
 export default async function EnProductsPage() {

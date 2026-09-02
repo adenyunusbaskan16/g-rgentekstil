@@ -2,6 +2,10 @@
 // GÜRGENTEKSTIL - Sabit İçerik Verileri
 // =============================================
 
+// Tek kaynak — tüm canonical/hreflang/JSON-LD/sitemap/robots bu domaini kullanır.
+// Punycode (xn--) formu next.config.ts'deki redirect hedefiyle birebir aynıdır.
+export const SITE_URL = "https://xn--grgentekstil-dlb.com";
+
 export const COMPANY = {
   name: "Gürgentekstil",
   nameFull: "Gürgentekstil Havlu İmalatı",
@@ -142,6 +146,7 @@ export const NAV_LINKS = {
     { href: "/uretim-kapasitesi", label: "Üretim Kapasitesi" },
     { href: "/makine-parkuru", label: "Makine Parkuru" },
     { href: "/urunler", label: "Ürünler" },
+    { href: "/otel-urunleri", label: "Otel Ürünleri" },
     { href: "/iletisim", label: "İletişim" },
   ],
   en: [
@@ -150,6 +155,7 @@ export const NAV_LINKS = {
     { href: "/en/production-capacity", label: "Production" },
     { href: "/en/machinery", label: "Machinery" },
     { href: "/en/products", label: "Products" },
+    { href: "/en/hotel-products", label: "Hotel Products" },
     { href: "/en/contact", label: "Contact" },
   ],
 } as const;
@@ -161,6 +167,7 @@ export const LANG_PAIRS: Record<string, string> = {
   "/uretim-kapasitesi": "/en/production-capacity",
   "/makine-parkuru": "/en/machinery",
   "/urunler": "/en/products",
+  "/otel-urunleri": "/en/hotel-products",
   "/iletisim": "/en/contact",
   "/kvkk": "/en/privacy",
   "/en": "/",
@@ -168,6 +175,7 @@ export const LANG_PAIRS: Record<string, string> = {
   "/en/production-capacity": "/uretim-kapasitesi",
   "/en/machinery": "/makine-parkuru",
   "/en/products": "/urunler",
+  "/en/hotel-products": "/otel-urunleri",
   "/en/contact": "/iletisim",
   "/en/privacy": "/kvkk",
 };

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, MessageCircle, MapPin, ExternalLink, ChevronRight } from "lucide-react";
-import { COMPANY, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import QuoteForm from "@/components/sections/QuoteForm";
 
 export const metadata: Metadata = {
   title: "Get a Quote | Gurgen Tekstil Contact",
   description: "Contact Gurgen Tekstil via WhatsApp, phone or quote form for wholesale towels, stock products and custom production requests.",
-  alternates: { canonical: "https://gürgentekstil.com/en/contact", languages: { tr: "/iletisim" } },
+  alternates: { canonical: `${SITE_URL}/en/contact`, languages: { tr: "/iletisim" } },
 };
 
 export default function EnContactPage() {

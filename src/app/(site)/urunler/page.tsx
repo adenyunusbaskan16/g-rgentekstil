@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Package, Ruler, ChevronRight, ArrowRight } from "lucide-react";
-import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import CategoryNav from "@/components/ui/CategoryNav";
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   description:
     "El havlusu, yüz havlusu, ayak havlusu, banyo havlusu ve mutfak havlusu gruplarında hazır stok ve özel üretim. Denizli'den toptan havlu tedariki.",
   alternates: {
-    canonical: "https://gürgentekstil.com/urunler",
-    languages: { "tr": "https://gürgentekstil.com/urunler", "en": "https://gürgentekstil.com/en/products", "x-default": "https://gürgentekstil.com/urunler" },
+    canonical: `${SITE_URL}/urunler`,
+    languages: { "tr": `${SITE_URL}/urunler`, "en": `${SITE_URL}/en/products`, "x-default": `${SITE_URL}/urunler` },
   },
   openGraph: {
     title: "Toptan Havlu Ürünleri | Gürgentekstil",
     description: "El, yüz, ayak, mutfak ve banyo havlusu — hazır stok ve siparişe göre üretim.",
-    url: "https://gürgentekstil.com/urunler",
+    url: `${SITE_URL}/urunler`,
     type: "website",
     locale: "tr_TR",
   },

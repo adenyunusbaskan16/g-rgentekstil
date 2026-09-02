@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/data";
+import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Production Capacity | Gurgen Tekstil Denizli",
   description: "Gurgen Tekstil serves wholesale and export customers with 1,216 tons annual towel weaving capacity in Denizli.",
-  alternates: { canonical: "https://gürgentekstil.com/en/production-capacity", languages: { tr: "/uretim-kapasitesi" } },
+  alternates: { canonical: `${SITE_URL}/en/production-capacity`, languages: { tr: "/uretim-kapasitesi" } },
 };
 
 const steps = [

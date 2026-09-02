@@ -6,7 +6,7 @@ import {
   MessageCircle, ChevronRight, ArrowRight,
   Ruler, Package, CheckCircle, ArrowLeft,
 } from "lucide-react";
-import { COMPANY, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProductBySlug, getProducts } from "@/lib/products";
 import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaProduct, schemaBreadcrumb } from "@/lib/schema";
@@ -47,8 +47,8 @@ export async function generateMetadata({
   if (!p) return { title: "Product Not Found" };
 
   const desc = (p.description_en || autoDescriptionEn(p)).slice(0, 160);
-  const canonicalUrl = `https://gürgentekstil.com/en/products/${slug}`;
-  const imgUrl = p.image_url ?? `https://gürgentekstil.com/opengraph-image`;
+  const canonicalUrl = `${SITE_URL}/en/products/${slug}`;
+  const imgUrl = p.image_url ?? `${SITE_URL}/opengraph-image`;
 
   return {
     title: `${p.name_en}${p.size ? ` ${p.size}` : ""} — Wholesale Towel | Gurgen Tekstil`,
@@ -58,8 +58,8 @@ export async function generateMetadata({
       canonical: canonicalUrl,
       languages: {
         "en": canonicalUrl,
-        "tr": `https://gürgentekstil.com/urunler/${slug}`,
-        "x-default": `https://gürgentekstil.com/urunler/${slug}`,
+        "tr": `${SITE_URL}/urunler/${slug}`,
+        "x-default": `${SITE_URL}/urunler/${slug}`,
       },
     },
     openGraph: {
@@ -269,10 +269,10 @@ export default async function EnProductDetailPage({
           : undefined,
       })} />
       <JsonLd data={schemaBreadcrumb([
-        { name: "Home",     url: "https://gürgentekstil.com/en" },
-        { name: "Products", url: "https://gürgentekstil.com/en/products" },
-        ...(product.category ? [{ name: product.category.name_en, url: `https://gürgentekstil.com/en/products#${product.category.slug}` }] : []),
-        { name: product.name_en, url: `https://gürgentekstil.com/en/products/${product.slug}` },
+        { name: "Home",     url: `${SITE_URL}/en` },
+        { name: "Products", url: `${SITE_URL}/en/products` },
+        ...(product.category ? [{ name: product.category.name_en, url: `${SITE_URL}/en/products#${product.category.slug}` }] : []),
+        { name: product.name_en, url: `${SITE_URL}/en/products/${product.slug}` },
       ])} />
     </>
   );

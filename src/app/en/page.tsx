@@ -5,7 +5,7 @@ import {
   ArrowRight, MessageCircle, CheckCircle,
   Package, Ruler, Award, Truck, Settings, Users,
 } from "lucide-react";
-import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaOrganization, schemaWebSite, schemaBreadcrumb, schemaFAQ } from "@/lib/schema";
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   description:
     "Gurgen Tekstil is a Denizli-based towel manufacturer producing hand, face, foot, kitchen and bath towels. Wholesale supply and custom production for brands and export buyers.",
   alternates: {
-    canonical: "https://gürgentekstil.com/en",
-    languages: { "en": "https://gürgentekstil.com/en", "tr": "https://gürgentekstil.com/", "x-default": "https://gürgentekstil.com/" },
+    canonical: `${SITE_URL}/en`,
+    languages: { "en": `${SITE_URL}/en`, "tr": `${SITE_URL}/`, "x-default": `${SITE_URL}/` },
   },
   keywords: ["Turkish towel manufacturer", "wholesale towels Turkey", "towel factory Denizli", "bath towel wholesale", "custom towel production Turkey"],
   openGraph: {
     title: "Gurgen Tekstil | Towel Manufacturer in Turkey",
     description: "Hand, face, bath & kitchen towels — ready stock and custom production from Denizli, Turkey.",
-    url: "https://gürgentekstil.com/en",
+    url: `${SITE_URL}/en`,
     type: "website",
     locale: "en_US",
     alternateLocale: ["tr_TR"],
@@ -417,7 +417,7 @@ export default async function EnHomePage() {
       <JsonLd data={schemaOrganization()} />
       <JsonLd data={schemaWebSite()} />
       <JsonLd data={schemaBreadcrumb([
-        { name: "Home", url: "https://gürgentekstil.com/en" },
+        { name: "Home", url: `${SITE_URL}/en` },
       ])} />
       <JsonLd data={schemaFAQ([
         { question: "What towel types does Gurgen Tekstil produce?", answer: "Gurgen Tekstil produces hand towels, face towels, foot towels, kitchen towels and bath towels — all made from 100% cotton in Denizli, Turkey." },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/data";
+import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Gürgentekstil; armurlu ve jakarli, ithal ve yerli yeni nesil dokuma makineleriyle yıllık 1.216 ton kapasiteyle havlu üretimi yapmaktadır.",
   alternates: {
-    canonical: "https://gürgentekstil.com/makine-parkuru",
-    languages: { "tr": "https://gürgentekstil.com/makine-parkuru", "en": "https://gürgentekstil.com/en/machinery", "x-default": "https://gürgentekstil.com/makine-parkuru" },
+    canonical: `${SITE_URL}/makine-parkuru`,
+    languages: { "tr": `${SITE_URL}/makine-parkuru`, "en": `${SITE_URL}/en/machinery`, "x-default": `${SITE_URL}/makine-parkuru` },
   },
   openGraph: {
     title: "Makine Parkuru | Gürgentekstil Denizli",
     description: "Armurlu ve jakarli dokuma makineleriyle yıllık 1.216 ton havlu üretim kapasitesi.",
-    url: "https://gürgentekstil.com/makine-parkuru",
+    url: `${SITE_URL}/makine-parkuru`,
     type: "website",
     locale: "tr_TR",
   },

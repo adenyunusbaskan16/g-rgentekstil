@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/data";
+import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Gürgentekstil, Denizli'de 450 m² kapalı üretim alanı ve yıllık 1.216 ton havlu dokuma kapasitesiyle toptan ve ihracat odaklı müşterilere hizmet verir.",
   alternates: {
-    canonical: "https://gürgentekstil.com/uretim-kapasitesi",
-    languages: { "tr": "https://gürgentekstil.com/uretim-kapasitesi", "en": "https://gürgentekstil.com/en/production-capacity", "x-default": "https://gürgentekstil.com/uretim-kapasitesi" },
+    canonical: `${SITE_URL}/uretim-kapasitesi`,
+    languages: { "tr": `${SITE_URL}/uretim-kapasitesi`, "en": `${SITE_URL}/en/production-capacity`, "x-default": `${SITE_URL}/uretim-kapasitesi` },
   },
   openGraph: {
     title: "Üretim Kapasitesi | Gürgentekstil Denizli",
     description: "450 m² kapalı üretim alanı, yıllık 1.216 ton dokuma kapasitesi. Armurlu ve jakarli makineler.",
-    url: "https://gürgentekstil.com/uretim-kapasitesi",
+    url: `${SITE_URL}/uretim-kapasitesi`,
     type: "website",
     locale: "tr_TR",
   },

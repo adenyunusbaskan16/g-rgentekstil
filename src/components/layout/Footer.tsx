@@ -22,6 +22,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
         { href: "/en/production-capacity",   l: "Production" },
         { href: "/en/machinery",             l: "Machinery" },
         { href: "/en/products",              l: "Products" },
+        { href: "/en/hotel-products",        l: "Hotel Products" },
         { href: "/en/contact",               l: "Contact" },
       ]
     : [
@@ -30,6 +31,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
         { href: "/uretim-kapasitesi", l: "Üretim Kapasitesi" },
         { href: "/makine-parkuru",    l: "Makine Parkuru" },
         { href: "/urunler",           l: "Ürünler" },
+        { href: "/otel-urunleri",     l: "Otel Ürünleri" },
         { href: "/iletisim",          l: "İletişim" },
       ];
 

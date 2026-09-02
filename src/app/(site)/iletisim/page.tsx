@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MessageCircle, MapPin, ChevronRight } from "lucide-react";
-import { COMPANY, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
 import QuoteForm from "@/components/sections/QuoteForm";
 
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description:
     "Toptan havlu, stok ürün ve siparişe göre üretim talepleriniz için Gürgentekstil ile WhatsApp, telefon veya teklif formu üzerinden iletişime geçin. Hızlı dönüş garantisi.",
   alternates: {
-    canonical: "https://gürgentekstil.com/iletisim",
-    languages: { "tr": "https://gürgentekstil.com/iletisim", "en": "https://gürgentekstil.com/en/contact", "x-default": "https://gürgentekstil.com/iletisim" },
+    canonical: `${SITE_URL}/iletisim`,
+    languages: { "tr": `${SITE_URL}/iletisim`, "en": `${SITE_URL}/en/contact`, "x-default": `${SITE_URL}/iletisim` },
   },
   openGraph: {
     title: "Teklif Al — Gürgentekstil İletişim",
     description: "Toptan havlu tedariki için WhatsApp, telefon veya form üzerinden teklif alın.",
-    url: "https://gürgentekstil.com/iletisim",
+    url: `${SITE_URL}/iletisim`,
     type: "website",
     locale: "tr_TR",
   },

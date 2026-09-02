@@ -6,7 +6,7 @@ import {
   MessageCircle, ChevronRight, ArrowRight,
   Ruler, Package, CheckCircle, ArrowLeft,
 } from "lucide-react";
-import { COMPANY, getWhatsAppUrl } from "@/lib/data";
+import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProductBySlug, getProducts } from "@/lib/products";
 import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaProduct, schemaBreadcrumb, schemaOrganization } from "@/lib/schema";
@@ -52,8 +52,8 @@ export async function generateMetadata({
   if (!p) return { title: "Ürün Bulunamadı" };
 
   const desc = p.description_tr || autoDescription(p);
-  const canonicalUrl = `https://gürgentekstil.com/urunler/${slug}`;
-  const imgUrl = p.image_url ?? `https://gürgentekstil.com/opengraph-image`;
+  const canonicalUrl = `${SITE_URL}/urunler/${slug}`;
+  const imgUrl = p.image_url ?? `${SITE_URL}/opengraph-image`;
 
   const keywords = [
     p.name_tr,
@@ -73,7 +73,7 @@ export async function generateMetadata({
       canonical: canonicalUrl,
       languages: {
         "tr": canonicalUrl,
-        "en": `https://gürgentekstil.com/en/products/${slug}`,
+        "en": `${SITE_URL}/en/products/${slug}`,
         "x-default": canonicalUrl,
       },
     },
@@ -433,10 +433,10 @@ export default async function UrunDetayPage({
           : undefined,
       })} />
       <JsonLd data={schemaBreadcrumb([
-        { name: "Ana Sayfa", url: "https://gürgentekstil.com" },
-        { name: "Ürünler",   url: "https://gürgentekstil.com/urunler" },
-        ...(product.category ? [{ name: product.category.name_tr, url: `https://gürgentekstil.com/urunler#${product.category.slug}` }] : []),
-        { name: product.name_tr, url: `https://gürgentekstil.com/urunler/${product.slug}` },
+        { name: "Ana Sayfa", url: `${SITE_URL}` },
+        { name: "Ürünler",   url: `${SITE_URL}/urunler` },
+        ...(product.category ? [{ name: product.category.name_tr, url: `${SITE_URL}/urunler#${product.category.slug}` }] : []),
+        { name: product.name_tr, url: `${SITE_URL}/urunler/${product.slug}` },
       ])} />
       <JsonLd data={schemaOrganization()} />
     </>

@@ -1,8 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@/lib/supabase";
 import { verifyPassword, createToken, COOKIE_NAME, COOKIE_MAX_AGE } from "@/lib/auth";
+import { rateLimit, getClientIp } from "@/lib/rateLimit";
+
+// Brute-force koruması: aynı IP'den 15 dakikada en fazla 5 giriş denemesi
+const LOGIN_RATE_LIMIT = 5;
+const LOGIN_RATE_WINDOW_MS = 15 * 60 * 1000;
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const limit = rateLimit(`login:${ip}`, LOGIN_RATE_LIMIT, LOGIN_RATE_WINDOW_MS);
+  if (!limit.ok) {
+    return NextResponse.json(
+      { success: false, error: "Çok fazla başarısız deneme. Lütfen daha sonra tekrar deneyin." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const { username, password } = await req.json();
 

@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/data";
+import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Machinery | Dobby and Jacquard Towel Weaving",
   description: "Gurgen Tekstil evaluates towel production requests with dobby and jacquard, imported and domestic next-generation weaving machines.",
-  alternates: { canonical: "https://gürgentekstil.com/en/machinery", languages: { tr: "/makine-parkuru" } },
+  alternates: { canonical: `${SITE_URL}/en/machinery`, languages: { tr: "/makine-parkuru" } },
 };
 
 const machines = [
