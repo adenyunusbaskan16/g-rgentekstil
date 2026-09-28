@@ -11,6 +11,8 @@ import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaOrganization, schemaWebSite, schemaBreadcrumb, schemaFAQ } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
 
+export const revalidate = 60; // Her 60 saniyede yenile (TR sayfalarla aynı)
+
 export const metadata: Metadata = {
   title: "Gurgen Tekstil | Towel Manufacturer in Denizli, Turkey",
   description:

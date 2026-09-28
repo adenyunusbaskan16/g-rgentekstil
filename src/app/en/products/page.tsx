@@ -6,10 +6,27 @@ import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 
+export const revalidate = 60; // Her 60 saniyede yenile (TR sayfalarla aynı)
+
 export const metadata: Metadata = {
   title: "Wholesale Towels from Turkey | Gurgen Tekstil",
   description: "Hand, face, foot, kitchen and bath towels in various sizes — wholesale and custom production from Denizli, Turkey.",
-  alternates: { canonical: `${SITE_URL}/en/products`, languages: { tr: "/urunler" } },
+  alternates: {
+    canonical: `${SITE_URL}/en/products`,
+    languages: {
+      en: `${SITE_URL}/en/products`,
+      tr: `${SITE_URL}/urunler`,
+      "x-default": `${SITE_URL}/urunler`,
+    },
+  },
+  openGraph: {
+    title: "Wholesale Towels from Turkey | Gurgen Tekstil",
+    description: "Hand, face, foot, kitchen and bath towels — ready stock and custom production from Denizli, Turkey.",
+    url: `${SITE_URL}/en/products`,
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["tr_TR"],
+  },
 };
 
 export default async function EnProductsPage() {

@@ -32,6 +32,8 @@ function autoDescriptionEn(p: {
   return parts.join(" ");
 }
 
+export const revalidate = 60; // Her 60 saniyede yenile (TR sayfalarla aynı)
+
 export async function generateStaticParams() {
   const products = await getProducts();
   return products.map((p) => ({ slug: p.slug }));
