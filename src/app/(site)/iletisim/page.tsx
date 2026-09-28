@@ -100,7 +100,7 @@ export default function IletisimPage() {
         <div className="wrap">
           <div
             style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", alignItems: "start" }}
-            className="lg:grid-cols-5"
+            className="lg:grid-cols-5!"
           >
             {/* Sol — İletişim kartları */}
             <div style={{ display: "flex", flexDirection: "column", gap: "3px" }} className="lg:col-span-2">
@@ -119,7 +119,7 @@ export default function IletisimPage() {
                   textDecoration: "none",
                   transition: "background 0.2s",
                 }}
-                className="hover:bg-[var(--navy-2)]"
+                className="hover:bg-[var(--navy-2)]!"
               >
                 <div
                   style={{

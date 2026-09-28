@@ -40,8 +40,8 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
     : ["El Havluları", "Yüz Havluları", "Ayak Havluları", "Banyo Havluları", "Mutfak Havluları", "Toptan Grup"];
 
   const linkStyle: React.CSSProperties = {
-    fontSize: "0.8rem",
-    color: "rgba(255,255,255,0.3)",
+    fontSize: "0.85rem",
+    color: "rgba(255,255,255,0.62)",
     display: "block",
     padding: "0.3rem 0",
     transition: "color 0.18s",
@@ -65,7 +65,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
       <div className="wrap" style={{ paddingTop: "4rem", paddingBottom: "3rem" }}>
         <div
           style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem" }}
-          className="sm:grid-cols-2 lg:grid-cols-4"
+          className="sm:grid-cols-2! lg:grid-cols-4!"
         >
           {/* ── Marka ── */}
           <div>
@@ -81,7 +81,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
               />
             </div>
 
-            <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.28)", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+            <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.62)", lineHeight: 1.8, marginBottom: "1.5rem" }}>
               {isEn
                 ? "Towel manufacturer in Denizli serving brands, wholesalers and export buyers."
                 : "Denizli'de toptancılara, markalara ve ihracat müşterilerine hizmet veren havlu üreticisi."}
@@ -93,7 +93,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
               rel="noopener noreferrer"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                fontSize: "0.75rem", color: "rgba(255,255,255,0.28)",
+                fontSize: "0.8rem", color: "rgba(255,255,255,0.62)",
                 transition: "color 0.18s", textDecoration: "none",
               }}
               className="hover:!text-[var(--gold)]"
@@ -136,7 +136,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
               {/* Adres */}
               <div style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start" }}>
                 <MapPin size={13} color="rgba(184,150,90,0.5)" style={{ marginTop: 3, flexShrink: 0 }} />
-                <span style={{ fontSize: "0.775rem", color: "rgba(255,255,255,0.25)", lineHeight: 1.7 }}>
+                <span style={{ fontSize: "0.825rem", color: "rgba(255,255,255,0.62)", lineHeight: 1.7 }}>
                   {COMPANY.address}
                 </span>
               </div>
@@ -179,24 +179,24 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
             gap: "0.5rem",
           }}
         >
-          <p style={{ fontSize: "0.675rem", color: "rgba(255,255,255,0.15)" }}>
+          <p style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)" }}>
             &copy; {new Date().getFullYear()} GürgenTekstil.{" "}
             {isEn ? "All rights reserved." : "Tüm hakları saklıdır."}{" "}
-            <span style={{ color: "rgba(255,255,255,0.1)" }}>|</span>{" "}
+            <span style={{ color: "rgba(255,255,255,0.25)" }}>|</span>{" "}
             <a
               href="https://hayb.com.tr"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "rgba(255,255,255,0.2)", textDecoration: "none", transition: "color 0.18s" }}
-              className="hover:!text-white/40"
+              style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.18s" }}
+              className="hover:!text-white"
             >
               HAYB Dijital Sistemler
             </a>
           </p>
           <Link
             href={isEn ? "/en/privacy" : "/kvkk"}
-            style={{ fontSize: "0.675rem", color: "rgba(255,255,255,0.15)", transition: "color 0.18s" }}
-            className="hover:!text-white/40"
+            style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", transition: "color 0.18s" }}
+            className="hover:!text-white"
           >
             {isEn ? "Privacy Policy" : "KVKK"}
           </Link>

@@ -8,7 +8,22 @@ import { IMAGES } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Machinery | Dobby and Jacquard Towel Weaving",
   description: "Gurgen Tekstil evaluates towel production requests with dobby and jacquard, imported and domestic next-generation weaving machines.",
-  alternates: { canonical: `${SITE_URL}/en/machinery`, languages: { tr: "/makine-parkuru" } },
+  alternates: {
+    canonical: `${SITE_URL}/en/machinery`,
+    languages: {
+      en: `${SITE_URL}/en/machinery`,
+      tr: `${SITE_URL}/makine-parkuru`,
+      "x-default": `${SITE_URL}/makine-parkuru`,
+    },
+  },
+  openGraph: {
+    title: "Machinery | Gurgen Tekstil",
+    description: "Dobby and jacquard, imported and domestic new-generation weaving machines for towel production.",
+    url: `${SITE_URL}/en/machinery`,
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["tr_TR"],
+  },
 };
 
 const machines = [
@@ -48,7 +63,7 @@ export default function MachineryPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(290px,1fr))", gap: "1.5rem" }}>
             {machines.map((m) => (
-              <div key={m.n} style={{ background: "#fff", border: "1px solid var(--border)", padding: "2rem 1.75rem", transition: "border-color 0.22s, box-shadow 0.22s" }} className="hover:border-[var(--gold)] hover:shadow-lg">
+              <div key={m.n} style={{ background: "#fff", border: "1px solid var(--border)", padding: "2rem 1.75rem", transition: "border-color 0.22s, box-shadow 0.22s" }} className="hover:border-[var(--gold)]! hover:shadow-lg!">
                 <div style={{ width: 44, height: 44, background: "var(--navy)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.25rem" }}>
                   <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--gold)" }}>{m.n}</span>
                 </div>
@@ -69,7 +84,7 @@ export default function MachineryPage() {
 
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "center" }} className="lg:grid-cols-2!">
             <div>
               <span className="eyebrow">Technical Data</span>
               <h2 className="section-title" style={{ marginBottom: "1rem" }}>Infrastructure Summary</h2>

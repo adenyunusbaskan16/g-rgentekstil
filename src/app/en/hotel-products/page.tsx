@@ -137,16 +137,19 @@ function ProductSection({
   )}`;
 
   return (
-    <div id={id} style={{ scrollMarginTop: "calc(var(--hdr) + 1rem)" }}>
+    <div id={id} className="hotel-sec" style={{ scrollMarginTop: "calc(var(--hdr) + 4rem)" }}>
       <div
         style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem", alignItems: "center" }}
-        className="lg:grid-cols-2"
+        className="hotel-row lg:grid-cols-2!"
       >
         <div
           style={{
             display: "grid",
             gridTemplateColumns: images.length === 2 ? "repeat(2, 1fr)" : "1fr",
             gap: "0.75rem",
+            width: "100%",
+            maxWidth: 480,
+            marginInline: "auto",
           }}
         >
           {images.map((img, i) => (
@@ -154,7 +157,7 @@ function ProductSection({
               key={i}
               style={{
                 position: "relative",
-                aspectRatio: "3/4",
+                aspectRatio: "4/5",
                 background: "var(--cream)",
                 border: "1px solid var(--border)",
                 overflow: "hidden",
@@ -271,28 +274,21 @@ export default function HotelProductsPage() {
       </section>
 
       {/* ── Anchor nav ── */}
-      <section style={{ background: "var(--cream)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
-        <div className="wrap" style={{ padding: "1rem 1.25rem", display: "flex", flexWrap: "wrap", gap: "0.5rem 1.25rem", justifyContent: "center" }}>
-          {PRODUCT_GROUPS.map((g) => (
-            <a
-              key={g.id}
-              href={`#${g.id}`}
-              style={{
-                fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.06em",
-                textTransform: "uppercase", color: "var(--muted)",
-                padding: "0.4rem 0", transition: "color 0.15s",
-              }}
-              className="hover:!text-[var(--navy)]"
-            >
-              {g.name}
-            </a>
-          ))}
+      <div className="cat-sticky-nav">
+        <div className="cat-sticky-nav-inner">
+          <div style={{ display: "flex", minWidth: "max-content" }}>
+            {PRODUCT_GROUPS.map((g) => (
+              <a key={g.id} href={`#${g.id}`} className="cat-sticky-nav-item">
+                {g.name}
+              </a>
+            ))}
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* ── Product sections ── */}
       <section className="sec" style={{ background: "var(--warm)" }}>
-        <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: "5rem" }}>
+        <div className="wrap hotel-list" style={{ display: "flex", flexDirection: "column", gap: "5rem" }}>
 
           <ProductSection
             id="hotel-towels"
@@ -424,7 +420,7 @@ export default function HotelProductsPage() {
           </div>
           <div
             style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1px", background: "rgba(255,255,255,0.06)" }}
-            className="sm:grid-cols-2 lg:grid-cols-4"
+            className="sm:grid-cols-2! lg:grid-cols-4!"
           >
             {[
               { icon: Ruler, t: "Custom Size", d: "Size options evaluated to match your property's needs." },
@@ -447,7 +443,7 @@ export default function HotelProductsPage() {
       {/* ── Choosing a hotel towel ── */}
       <section className="sec" style={{ background: "#fff" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2!">
             <div>
               <span className="eyebrow">Guide</span>
               <h2 className="section-title" style={{ marginBottom: "1.125rem" }}>What to Consider When Choosing Hotel Towels</h2>

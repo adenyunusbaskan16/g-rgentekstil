@@ -8,7 +8,22 @@ import { IMAGES } from "@/lib/images";
 export const metadata: Metadata = {
   title: "About Us | Gurgen Tekstil Towel Manufacturer Denizli",
   description: "Gurgen Tekstil is a towel manufacturer based in Denizli Merkezefendi serving wholesale, brand and export customers.",
-  alternates: { canonical: `${SITE_URL}/en/about`, languages: { tr: "/kurumsal" } },
+  alternates: {
+    canonical: `${SITE_URL}/en/about`,
+    languages: {
+      en: `${SITE_URL}/en/about`,
+      tr: `${SITE_URL}/kurumsal`,
+      "x-default": `${SITE_URL}/kurumsal`,
+    },
+  },
+  openGraph: {
+    title: "About Us | Gurgen Tekstil",
+    description: "Gurgen Tekstil is a towel manufacturer based in Denizli Merkezefendi serving wholesale, brand and export customers.",
+    url: `${SITE_URL}/en/about`,
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["tr_TR"],
+  },
 };
 
 export default function AboutPage() {
@@ -35,7 +50,7 @@ export default function AboutPage() {
 
       <section className="sec" style={{ background: "#fff" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "start" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "start" }} className="lg:grid-cols-2!">
             <div>
               <span className="eyebrow">Who We Are</span>
               <h2 className="section-title" style={{ marginBottom: "1.25rem" }}>Towel Manufacturing & Wholesale Supply in Denizli</h2>
@@ -98,7 +113,7 @@ export default function AboutPage() {
 
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }} className="lg:grid-cols-3">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }} className="lg:grid-cols-3!">
             {[
               { img: IMAGES.factory,    t: "Production Facility",  d: "450 m² closed production area in Denizli Merkezefendi" },
               { img: IMAGES.weaving,    t: "Weaving Infrastructure", d: "Dobby and jacquard, imported and domestic next-gen machines" },

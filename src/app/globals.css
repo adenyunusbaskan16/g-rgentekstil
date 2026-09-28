@@ -76,6 +76,7 @@ ul, ol { list-style: none; }
 /* ═══════════════════════════════════════════
    HEADER
 ═══════════════════════════════════════════ */
+.hdr-wrap { max-width: 1400px; }
 .hdr {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -94,10 +95,11 @@ ul, ol { list-style: none; }
 .nav-link {
   font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  padding: 0.375rem 0.75rem;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.72);
+  padding: 0.5rem 0.625rem;
   border-bottom: 1.5px solid transparent;
   transition: color 0.18s, border-color 0.18s;
 }
@@ -354,8 +356,8 @@ ul, ol { list-style: none; }
   margin-bottom: 0.15rem;
 }
 .feat-band-sub {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
   line-height: 1.4;
 }
 
@@ -472,7 +474,7 @@ ul, ol { list-style: none; }
 }
 .stat-label {
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.62);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.4;
@@ -608,10 +610,10 @@ textarea.f-input { resize: vertical; min-height: 120px; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  opacity: 0.55;
+  opacity: 0.85;
   transition: opacity 0.2s;
 }
-.cert-item:hover { opacity: 0.9; }
+.cert-item:hover { opacity: 1; }
 .cert-icon-wrap {
   width: 56px; height: 56px;
   border: 1.5px solid var(--border-2);
@@ -621,7 +623,7 @@ textarea.f-input { resize: vertical; min-height: 120px; }
   background: #fff;
 }
 .cert-label {
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -707,13 +709,13 @@ textarea.f-input { resize: vertical; min-height: 120px; }
   align-items: center;
   gap: 0.375rem;
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.62);
   margin-bottom: 1.25rem;
   flex-wrap: wrap;
 }
 .breadcrumb a { transition: color 0.15s; }
 .breadcrumb a:hover { color: rgba(255,255,255,0.7); }
-.breadcrumb-current { color: rgba(255,255,255,0.55); }
+.breadcrumb-current { color: rgba(255,255,255,0.9); }
 
 /* ═══════════════════════════════════════════
    INFO CARD (dark)
@@ -745,7 +747,9 @@ textarea.f-input { resize: vertical; min-height: 120px; }
   gap: 1rem;
   flex-wrap: wrap;
 }
+.sec-head-line > a { order: 2; }
 .sec-head-line::after {
+  order: 1;
   content: '';
   display: block;
   flex: 1;
@@ -759,14 +763,14 @@ textarea.f-input { resize: vertical; min-height: 120px; }
 /* ═══════════════════════════════════════════
    RESPONSIVE DESKTOP NAV VISIBILITY
 ═══════════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 1179px) {
   #desktop-nav   { display: none !important; }
   #desktop-right { display: none !important; }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1180px) {
   #desktop-nav   { visibility: visible !important; display: flex !important; }
   #desktop-right { display: flex !important; }
-  #mobile-right button { display: none !important; }
+  #mobile-right  { display: none !important; }
 }
 
 /* ═══════════════════════════════════════════
@@ -844,8 +848,13 @@ textarea.f-input { resize: vertical; min-height: 120px; }
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 1.25rem;
 }
+@media (min-width: 640px)  { .cat-sticky-nav-inner { padding: 0 1.5rem; } }
+@media (min-width: 1024px) { .cat-sticky-nav-inner { padding: 0 2.5rem; } }
+@media (min-width: 1280px) { .cat-sticky-nav-inner { padding: 0 3rem; } }
 .cat-sticky-nav-inner::-webkit-scrollbar { display: none; }
 .cat-sticky-nav-item {
   display: inline-flex;
@@ -943,3 +952,37 @@ textarea.f-input { resize: vertical; min-height: 120px; }
 .gt-btn-navy:hover { background: #232e40; }
 .gt-btn-lg     { padding: 0.9375rem 1.5rem; font-size: 0.9375rem; }
 .gt-btn-full   { width: 100%; }
+
+/* ═══════════════════════════════════════════
+   OTEL SAYFASI — masaüstünde sağlı-sollu dönüşümlü bölümler
+═══════════════════════════════════════════ */
+@media (min-width: 1024px) {
+  .hotel-list > .hotel-sec:nth-child(even) .hotel-row > :first-child { order: 2; }
+}
+
+/* ═══════════════════════════════════════════
+   ERİŞİLEBİLİRLİK / UX
+═══════════════════════════════════════════ */
+[id] { scroll-margin-top: calc(var(--hdr) + 1rem); }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 500;
+  background: var(--gold);
+  color: var(--navy-4);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.75rem 1.25rem;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

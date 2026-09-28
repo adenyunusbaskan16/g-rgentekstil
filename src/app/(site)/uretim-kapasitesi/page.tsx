@@ -57,7 +57,7 @@ export default function UretimKapasitesiPage() {
       {/* Stat strip */}
       <section className="stat-strip">
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }} className="sm:grid-cols-4">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }} className="sm:grid-cols-4!">
             {[
               { v: "450 m²",    l: "Kapalı Üretim Alanı" },
               { v: "600 m²",    l: "Toplam Tesis Alanı" },
@@ -76,7 +76,7 @@ export default function UretimKapasitesiPage() {
       {/* İçerik */}
       <section className="sec" style={{ background: "#fff" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "start" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "start" }} className="lg:grid-cols-2!">
 
             {/* Metin */}
             <div>
@@ -84,7 +84,7 @@ export default function UretimKapasitesiPage() {
               <h2 className="section-title" style={{ marginBottom: "1.125rem" }}>Üretim Tesisi</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem", marginBottom: "1.75rem" }}>
                 <p className="body-text">
-                  Üretim tesisi Denizli Merkezefendi'de, 450 m² kapalı ve 600 m² toplam alana sahip
+                  Üretim tesisi Denizli Merkezefendi&apos;de, 450 m² kapalı ve 600 m² toplam alana sahip
                   bir yapıda faaliyet göstermektedir.
                 </p>
                 <p className="body-text">

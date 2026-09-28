@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, Package, Ruler, ChevronRight } from "lucide-react";
+import { MessageCircle, Package, Ruler, ChevronRight, ArrowRight } from "lucide-react";
 import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
+import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
+import HotelProductGrid from "@/components/sections/HotelProductGrid";
 import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 
 export const revalidate = 60; // Her 60 saniyede yenile (TR sayfalarla aynı)
@@ -53,17 +55,16 @@ export default async function EnProductsPage() {
         </div>
       </section>
 
-      {categories.length > 0 && (
-        <div className="cat-sticky-nav">
-          <div className="cat-sticky-nav-inner">
-            <div style={{ display: "flex", minWidth: "max-content" }}>
-              {categories.map((c) => (
-                <a key={c.slug} href={`#${c.slug}`} className="cat-sticky-nav-item">{c.name_en}</a>
-              ))}
-            </div>
+      <div className="cat-sticky-nav">
+        <div className="cat-sticky-nav-inner">
+          <div style={{ display: "flex", minWidth: "max-content" }}>
+            {categories.map((c) => (
+              <a key={c.slug} href={`#${c.slug}`} className="cat-sticky-nav-item">{c.name_en}</a>
+            ))}
+            <a href="#hotel-products" className="cat-sticky-nav-item">Hotel Products</a>
           </div>
         </div>
-      )}
+      </div>
 
       <section className="sec" style={{ background: "var(--warm)" }}>
         <div className="wrap">
@@ -120,12 +121,26 @@ export default async function EnProductsPage() {
               <a href={getWhatsAppUrl("en")} target="_blank" rel="noopener noreferrer" className="btn btn-wa btn-lg"><MessageCircle size={17} /> Get a WhatsApp Quote</a>
             </div>
           )}
+
+          {/* Hotel Products — after all category groups */}
+          <div id="hotel-products" style={{ marginTop: grouped.length > 0 ? "4rem" : 0, scrollMarginTop: "calc(var(--hdr) + 3rem)" }}>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "1.75rem", paddingBottom: "1rem", borderBottom: "1px solid var(--border)", flexWrap: "wrap", gap: "0.75rem" }}>
+              <div>
+                <span className="eyebrow" style={{ fontSize: "0.6rem", marginBottom: "0.25rem" }}>Hospitality Textile</span>
+                <h2 style={{ fontSize: "1.375rem", fontWeight: 700, color: "var(--navy)" }}>Hotel Products</h2>
+              </div>
+              <Link href="/en/hotel-products" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
+                Hotel Products Page <ArrowRight size={13} />
+              </Link>
+            </div>
+            <HotelProductGrid items={HOTEL_PRODUCTS} lang="en" />
+          </div>
         </div>
       </section>
 
       <section className="sec" style={{ background: "#fff" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2!">
             <div>
               <span className="eyebrow">Sizes</span>
               <h2 className="section-title" style={{ marginBottom: "1rem" }}>Standard Towel Sizes</h2>

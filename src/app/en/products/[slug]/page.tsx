@@ -108,7 +108,7 @@ export default async function EnProductDetailPage({
     <>
       {/* ── Breadcrumb ── */}
       <div style={{ background: "var(--navy-4)", borderBottom: "1px solid rgba(255,255,255,0.06)", paddingTop: "var(--hdr)" }}>
-        <div className="wrap" style={{ padding: "0.875rem 1.25rem" }}>
+        <div className="wrap" style={{ paddingTop: "0.875rem", paddingBottom: "0.875rem" }}>
           <nav className="breadcrumb" style={{ marginBottom: 0 }}>
             <Link href="/en">Home</Link>
             <ChevronRight size={11} />
@@ -137,7 +137,7 @@ export default async function EnProductDetailPage({
             <ArrowLeft size={14} /> All Products
           </Link>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem", alignItems: "start" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem", alignItems: "start" }} className="lg:grid-cols-2!">
 
             {/* Image */}
             <div>

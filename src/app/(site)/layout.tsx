@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import HtmlLangSync from "@/components/HtmlLangSync";
 
 export default function SiteLayout({
   children,
@@ -9,8 +10,10 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <HtmlLangSync lang="tr" />
+      <a href="#main" className="skip-link">Ana içeriğe geç</a>
       <Header />
-      <main>{children}</main>
+      <main id="main">{children}</main>
       <Footer lang="tr" />
       <WhatsAppButton lang="tr" />
     </>

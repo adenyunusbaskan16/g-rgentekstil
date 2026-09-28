@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
+import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
+import HotelProductGrid from "@/components/sections/HotelProductGrid";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaOrganization, schemaWebSite, schemaBreadcrumb, schemaFAQ } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
@@ -143,7 +145,7 @@ export default async function EnHomePage() {
       {/* ── FEATURE BAND ── */}
       <section className="feat-band">
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }} className="sm:grid-cols-4">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }} className="sm:grid-cols-4!">
             {[
               { Icon: IconCotton,  t: "100% Cotton",       d: "Premium quality raw material" },
               { Icon: IconThread,  t: "Fast Production",   d: "On-time delivery" },
@@ -173,7 +175,7 @@ export default async function EnHomePage() {
             <span className="eyebrow">Product Groups</span>
             <h2 className="section-title">Towel Categories</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "3px", background: "var(--border)" }} className="sm:grid-cols-3">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "3px", background: "var(--border)" }} className="sm:grid-cols-3!">
             {displayCats.map((cat) => (
               <Link key={cat.slug}
                 href={categories.length > 0 ? `/en/products#${cat.slug}` : "/en/products"}
@@ -203,7 +205,7 @@ export default async function EnHomePage() {
       {/* ── ABOUT ── */}
       <section className="sec" style={{ background: "var(--warm)" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2!">
             <div style={{ position: "relative" }}>
               <div style={{ position: "relative", paddingBottom: "65%", overflow: "hidden", background: "var(--cream)" }}>
                 <Image src={IMAGES.factory} alt="Gurgen Tekstil production facility — Denizli" fill style={{ objectFit: "cover" }} sizes="(max-width:1024px)100vw,50vw" quality={80} />
@@ -253,7 +255,7 @@ export default async function EnHomePage() {
       {/* ── STATS ── */}
       <section className="stat-strip">
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }} className="sm:grid-cols-4">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }} className="sm:grid-cols-4!">
             {[
               { v: "450 m²",      l: "Closed Production\nArea" },
               { v: "1,216 tons",  l: "Annual Weaving\nCapacity" },
@@ -341,10 +343,26 @@ export default async function EnHomePage() {
         </section>
       )}
 
+      {/* ── HOTEL PRODUCTS — samples ── */}
+      <section className="sec" style={{ background: "var(--warm)" }}>
+        <div className="wrap">
+          <div className="sec-head-line">
+            <div>
+              <span className="eyebrow">Hospitality</span>
+              <h2 className="section-title">Hotel Products</h2>
+            </div>
+            <Link href="/en/hotel-products" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
+              View All <ArrowRight size={13} />
+            </Link>
+          </div>
+          <HotelProductGrid items={HOTEL_PRODUCTS.filter((p) => p.featured)} lang="en" />
+        </div>
+      </section>
+
       {/* ── SIZE TABLE ── */}
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2!">
             <div>
               <span className="eyebrow">Sizes</span>
               <h2 className="section-title" style={{ marginBottom: "1.125rem" }}>Standard Towel Sizes</h2>
@@ -379,9 +397,9 @@ export default async function EnHomePage() {
             <span className="eyebrow-center">Advantages</span>
             <h2 className="section-title-light">Why Gurgen Tekstil?</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1px", background: "rgba(255,255,255,0.06)" }} className="sm:grid-cols-2 lg:grid-cols-4">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1px", background: "rgba(255,255,255,0.06)" }} className="sm:grid-cols-2! lg:grid-cols-4!">
             {FEATS.map((f) => (
-              <div key={f.t} style={{ background: "var(--navy)", padding: "2rem 1.75rem", transition: "background 0.2s" }} className="hover:bg-[var(--navy-2)]">
+              <div key={f.t} style={{ background: "var(--navy)", padding: "2rem 1.75rem", transition: "background 0.2s" }} className="hover:bg-[var(--navy-2)]!">
                 <div className="feat-icon-dark" style={{ marginBottom: "1.25rem" }}>
                   <f.icon size={20} color="var(--gold)" />
                 </div>

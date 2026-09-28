@@ -7,7 +7,22 @@ import QuoteForm from "@/components/sections/QuoteForm";
 export const metadata: Metadata = {
   title: "Get a Quote | Gurgen Tekstil Contact",
   description: "Contact Gurgen Tekstil via WhatsApp, phone or quote form for wholesale towels, stock products and custom production requests.",
-  alternates: { canonical: `${SITE_URL}/en/contact`, languages: { tr: "/iletisim" } },
+  alternates: {
+    canonical: `${SITE_URL}/en/contact`,
+    languages: {
+      en: `${SITE_URL}/en/contact`,
+      tr: `${SITE_URL}/iletisim`,
+      "x-default": `${SITE_URL}/iletisim`,
+    },
+  },
+  openGraph: {
+    title: "Get a Quote | Gurgen Tekstil",
+    description: "Contact Gurgen Tekstil via WhatsApp, phone or quote form for wholesale towels and custom production.",
+    url: `${SITE_URL}/en/contact`,
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["tr_TR"],
+  },
 };
 
 export default function EnContactPage() {
@@ -33,12 +48,12 @@ export default function EnContactPage() {
 
       <section className="sec" style={{ background: "var(--warm)" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", alignItems: "start" }} className="lg:grid-cols-5">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", alignItems: "start" }} className="lg:grid-cols-5!">
             <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }} className="lg:col-span-2">
       {/* Updated contact rows with consistent spacing */}
               <a href={getWhatsAppUrl("en")} target="_blank" rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1.25rem 1.375rem", background: "var(--navy)", textDecoration: "none", transition: "background 0.2s" }}
-                className="hover:bg-[var(--navy-2)]">
+                className="hover:bg-[var(--navy-2)]!">
                 <div style={{ width: 46, height: 46, background: "var(--wa)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   <MessageCircle size={22} color="#fff" />
                 </div>

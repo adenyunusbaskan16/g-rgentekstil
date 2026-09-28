@@ -84,7 +84,7 @@ export default function KurumsalPage() {
         <div className="wrap">
           <div
             style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "start" }}
-            className="lg:grid-cols-12"
+            className="lg:grid-cols-12!"
           >
             {/* Sol — Metin */}
             <div style={{ gridColumn: "span 7" }} className="lg:col-span-7">
@@ -277,7 +277,7 @@ export default function KurumsalPage() {
         <div className="wrap">
           <div
             style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }}
-            className="sm:grid-cols-4"
+            className="sm:grid-cols-4!"
           >
             {[
               { v: "450 m²",    l: "Kapalı Üretim\nAlanı" },

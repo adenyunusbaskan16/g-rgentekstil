@@ -8,7 +8,22 @@ import { IMAGES } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Production Capacity | Gurgen Tekstil Denizli",
   description: "Gurgen Tekstil serves wholesale and export customers with 1,216 tons annual towel weaving capacity in Denizli.",
-  alternates: { canonical: `${SITE_URL}/en/production-capacity`, languages: { tr: "/uretim-kapasitesi" } },
+  alternates: {
+    canonical: `${SITE_URL}/en/production-capacity`,
+    languages: {
+      en: `${SITE_URL}/en/production-capacity`,
+      tr: `${SITE_URL}/uretim-kapasitesi`,
+      "x-default": `${SITE_URL}/uretim-kapasitesi`,
+    },
+  },
+  openGraph: {
+    title: "Production Capacity | Gurgen Tekstil",
+    description: "1,216 tons annual towel weaving capacity in Denizli, Turkey — wholesale and export focused production.",
+    url: `${SITE_URL}/en/production-capacity`,
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["tr_TR"],
+  },
 };
 
 const steps = [
@@ -43,7 +58,7 @@ export default function ProductionCapacityPage() {
 
       <section className="stat-strip">
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }} className="sm:grid-cols-4">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }} className="sm:grid-cols-4!">
             {[
               { v: "450 m²",     l: "Closed Production Area" },
               { v: "600 m²",     l: "Total Facility Area" },
@@ -61,7 +76,7 @@ export default function ProductionCapacityPage() {
 
       <section className="sec" style={{ background: "#fff" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "start" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "start" }} className="lg:grid-cols-2!">
             <div>
               <span className="eyebrow">Facility</span>
               <h2 className="section-title" style={{ marginBottom: "1.125rem" }}>Production Facility</h2>

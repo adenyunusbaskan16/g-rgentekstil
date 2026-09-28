@@ -6,6 +6,8 @@ import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import CategoryNav from "@/components/ui/CategoryNav";
+import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
+import HotelProductGrid from "@/components/sections/HotelProductGrid";
 
 export const revalidate = 60; // Her 60 saniyede yenile
 
@@ -85,9 +87,12 @@ export default async function UrunlerPage() {
       </section>
 
       {/* ── Sticky Kategori Nav ── */}
-      {categories.length > 0 && (
-        <CategoryNav categories={categories} />
-      )}
+      <CategoryNav
+        categories={[
+          ...categories,
+          { id: "otel-urunleri", slug: "otel-urunleri", name_tr: "Otel Ürünleri" },
+        ]}
+      />
 
       {/* ── Ürün Listesi ── */}
       <section className="sec" style={{ background: "var(--warm)" }}>
@@ -297,6 +302,21 @@ export default async function UrunlerPage() {
               </a>
             </div>
           )}
+
+          {/* ── Otel Ürünleri — kategori grupları bittikten sonra ── */}
+          <div id="otel-urunleri" style={{ marginTop: grouped.length > 0 ? "5rem" : 0, scrollMarginTop: "calc(var(--hdr) + 3rem)" }}>
+            <div style={{ marginBottom: "1.75rem", paddingBottom: "1rem", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
+              <div>
+                <span className="eyebrow">Hospitality Tekstili</span>
+                <h2 className="section-title-sm">Otel Ürünleri</h2>
+              </div>
+              <Link href="/otel-urunleri" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
+                Otel Ürünleri Sayfası
+                <ArrowRight size={13} />
+              </Link>
+            </div>
+            <HotelProductGrid items={HOTEL_PRODUCTS} lang="tr" />
+          </div>
         </div>
       </section>
 
@@ -310,7 +330,7 @@ export default async function UrunlerPage() {
               gap: "3.5rem",
               alignItems: "center",
             }}
-            className="lg:grid-cols-2"
+            className="lg:grid-cols-2!"
           >
             <div>
               <span className="eyebrow">Ebatlar</span>
@@ -375,7 +395,7 @@ export default async function UrunlerPage() {
               gap: "1.5rem",
               alignItems: "flex-start",
             }}
-            className="sm:flex-row sm:items-center sm:justify-between"
+            className="sm:flex-row! sm:items-center! sm:justify-between!"
           >
             <div>
               <h2

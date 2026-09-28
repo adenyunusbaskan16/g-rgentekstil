@@ -85,7 +85,7 @@ export default function MakineParkuruPage() {
                 padding: "2rem 1.75rem",
                 transition: "border-color 0.22s, box-shadow 0.22s",
               }}
-                className="hover:border-[var(--gold)] hover:shadow-lg">
+                className="hover:border-[var(--gold)]! hover:shadow-lg!">
                 {/* Numara */}
                 <div style={{
                   width: 44, height: 44, background: "var(--navy)",
@@ -112,7 +112,7 @@ export default function MakineParkuruPage() {
       {/* Teknik tablo */}
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "4rem", alignItems: "center" }} className="lg:grid-cols-2!">
             <div>
               <span className="eyebrow">Teknik Veriler</span>
               <h2 className="section-title" style={{ marginBottom: "1rem" }}>Altyapı Özeti</h2>

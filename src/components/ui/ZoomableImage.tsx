@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, ZoomIn } from "lucide-react";
 
 /**
  * Ürün fotoğrafı — tıklanınca (mobil ve masaüstünde) tam ekran büyüteç
@@ -56,10 +56,29 @@ export default function ZoomableImage({
           src={src}
           alt={alt}
           fill
-          style={{ objectFit: "contain", padding: "0.5rem" }}
+          style={{ objectFit: "cover" }}
           sizes={sizes}
           quality={quality}
         />
+        <span
+          aria-hidden
+          style={{
+            position: "absolute",
+            right: "0.75rem",
+            bottom: "0.75rem",
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            background: "rgba(10,21,32,0.72)",
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            pointerEvents: "none",
+          }}
+        >
+          <ZoomIn size={17} />
+        </span>
       </button>
 
       {open && (

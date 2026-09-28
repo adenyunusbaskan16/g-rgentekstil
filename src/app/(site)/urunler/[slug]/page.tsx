@@ -136,7 +136,7 @@ export default async function UrunDetayPage({
           paddingTop: "var(--hdr)",
         }}
       >
-        <div className="wrap" style={{ padding: "0.875rem 1.25rem" }}>
+        <div className="wrap" style={{ paddingTop: "0.875rem", paddingBottom: "0.875rem" }}>
           <nav className="breadcrumb" style={{ marginBottom: 0 }}>
             <Link href="/">Ana Sayfa</Link>
             <ChevronRight size={11} />
@@ -178,7 +178,7 @@ export default async function UrunDetayPage({
 
           <div
             style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem", alignItems: "start" }}
-            className="lg:grid-cols-2"
+            className="lg:grid-cols-2!"
           >
             {/* ── Sol: Görsel ── */}
             <div>

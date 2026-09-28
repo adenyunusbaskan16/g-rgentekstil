@@ -10,8 +10,20 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/", "/_next/", "/static/"],
       },
       {
-        // GPTBot ve AI crawlerlarına izin ver — GEO için önemli
+        // GPTBot: OpenAI eğitim verisi tarayıcısı
         userAgent: "GPTBot",
+        allow: "/",
+        disallow: ["/admin/", "/api/"],
+      },
+      {
+        // OAI-SearchBot: ChatGPT arama özelliğinin canlı tarayıcısı (GPTBot'tan ayrı)
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+        disallow: ["/admin/", "/api/"],
+      },
+      {
+        // ClaudeBot: Claude'un canlı/gerçek-zamanlı web erişimi (anthropic-ai eski/eğitim botu)
+        userAgent: "ClaudeBot",
         allow: "/",
         disallow: ["/admin/", "/api/"],
       },
@@ -27,6 +39,18 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "PerplexityBot",
+        allow: "/",
+        disallow: ["/admin/", "/api/"],
+      },
+      {
+        // CCBot: Common Crawl — birçok LLM'in eğitim verisi kaynağı
+        userAgent: "CCBot",
+        allow: "/",
+        disallow: ["/admin/", "/api/"],
+      },
+      {
+        // Applebot-Extended: Apple Intelligence / Siri için içerik kullanım izni
+        userAgent: "Applebot-Extended",
         allow: "/",
         disallow: ["/admin/", "/api/"],
       },

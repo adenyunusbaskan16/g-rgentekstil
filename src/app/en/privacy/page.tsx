@@ -6,7 +6,22 @@ import { COMPANY, SITE_URL } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Privacy Policy | Gurgen Tekstil",
   description: "Gurgen Tekstil privacy policy and personal data protection.",
-  alternates: { canonical: `${SITE_URL}/en/privacy`, languages: { tr: "/kvkk" } },
+  alternates: {
+    canonical: `${SITE_URL}/en/privacy`,
+    languages: {
+      en: `${SITE_URL}/en/privacy`,
+      tr: `${SITE_URL}/kvkk`,
+      "x-default": `${SITE_URL}/kvkk`,
+    },
+  },
+  openGraph: {
+    title: "Privacy Policy | Gurgen Tekstil",
+    description: "Gurgen Tekstil privacy policy and personal data protection.",
+    url: `${SITE_URL}/en/privacy`,
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["tr_TR"],
+  },
 };
 
 export default function PrivacyPage() {

@@ -18,7 +18,12 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const body = await req.json() as QuoteRequest;
+    const body = await req.json() as QuoteRequest & { website?: string };
+
+    // Honeypot: gizli alanı dolduran bir bot — sessizce "başarılı" dön, kaydetme
+    if (body.website) {
+      return NextResponse.json({ success: true });
+    }
 
     // Zorunlu alanlar
     if (!body.full_name?.trim() || !body.phone?.trim()) {

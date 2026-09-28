@@ -1,0 +1,43 @@
+# Gürgentekstil
+
+> Gürgentekstil, Türkiye'nin Denizli ilinde (Merkezefendi) kurulu bir havlu üretim
+> tesisidir. El, yüz, ayak, mutfak ve banyo havlusu ile otel/hospitality tekstili
+> (otel havlusu, bornoz, pike, nevresim, çarşaf, yastık kılıfı) üretimi yapar.
+> Hazır stok ürünler ve siparişe göre özel üretim (ölçü, gramaj, iplik, jakar desen)
+> sunar. Müşteri kitlesi: toptancılar, markalar, oteller ve ihracat alıcıları.
+> Site bir e-ticaret platformu değildir; fiyat ve sipariş süreci WhatsApp, telefon
+> veya teklif formu üzerinden yürütülür.
+
+## Şirket Bilgileri
+- Konum: Sumer Mahallesi 2507 Sokak No:45 B/Z2, Merkezefendi / Denizli, Türkiye
+- Kapalı üretim alanı: 450 m² (toplam alan 600 m²)
+- Yıllık dokuma kapasitesi: 1.216 ton
+- Dokuma altyapısı: armurlu ve jakarlı, ithal ve yerli yeni nesil dokuma makineleri
+- Hammadde: %100 pamuk
+- Dil desteği: Türkçe (varsayılan) ve İngilizce
+
+## Ana Sayfalar (Türkçe)
+- [Ana Sayfa](/): Genel tanıtım, ürün kategorileri, üretim istatistikleri
+- [Ürünler](/urunler): El, yüz, ayak, mutfak, banyo havlusu kataloğu (Supabase'den dinamik)
+- [Otel Ürünleri](/otel-urunleri): Otel/hospitality tekstili — havlu, bornoz, pike, nevresim, çarşaf, nevresim takımı, yastık kılıfı
+- [Kurumsal](/kurumsal): Şirket hakkında
+- [Üretim Kapasitesi](/uretim-kapasitesi): Üretim süreci ve kapasite detayları
+- [Makine Parkuru](/makine-parkuru): Dokuma makineleri altyapısı
+- [İletişim](/iletisim): Teklif formu, WhatsApp, telefon, adres
+
+## Main Pages (English)
+- [Home](/en)
+- [Products](/en/products)
+- [Hotel Products](/en/hotel-products)
+- [About](/en/about)
+- [Production Capacity](/en/production-capacity)
+- [Machinery](/en/machinery)
+- [Contact](/en/contact)
+
+## Teklif / İletişim (Quote / Contact)
+Fiyat listesi yayınlanmaz; toptan teklif WhatsApp, telefon veya [iletişim formu](/iletisim)
+üzerinden alınır. Bu, e-ticaret değil B2B/toptan bir üretici-tedarikçi modelidir.
+
+## Ek Kaynaklar
+- [Sitemap](/sitemap.xml)
+- [Robots](/robots.txt)

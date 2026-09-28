@@ -6,7 +6,21 @@ import { COMPANY, SITE_URL } from "@/lib/data";
 export const metadata: Metadata = {
   title: "KVKK ve Gizlilik Politikası | Gürgentekstil",
   description: "Gürgentekstil kişisel verilerin korunması ve gizlilik politikası.",
-  alternates: { canonical: `${SITE_URL}/kvkk`, languages: { en: "/en/privacy" } },
+  alternates: {
+    canonical: `${SITE_URL}/kvkk`,
+    languages: {
+      tr: `${SITE_URL}/kvkk`,
+      en: `${SITE_URL}/en/privacy`,
+      "x-default": `${SITE_URL}/kvkk`,
+    },
+  },
+  openGraph: {
+    title: "KVKK ve Gizlilik Politikası | Gürgentekstil",
+    description: "Gürgentekstil kişisel verilerin korunması ve gizlilik politikası.",
+    url: `${SITE_URL}/kvkk`,
+    type: "website",
+    locale: "tr_TR",
+  },
 };
 
 export default function KvkkPage() {

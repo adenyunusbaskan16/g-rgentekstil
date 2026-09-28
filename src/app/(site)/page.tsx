@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
+import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
+import HotelProductGrid from "@/components/sections/HotelProductGrid";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import {
   schemaOrganization, schemaLocalBusiness,
@@ -247,7 +249,7 @@ export default async function HomePage() {
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
             }}
-            className="sm:grid-cols-4"
+            className="sm:grid-cols-4!"
           >
             {[
               {
@@ -309,7 +311,7 @@ export default async function HomePage() {
               gap: "3px",
               background: "var(--border)",
             }}
-            className="sm:grid-cols-3"
+            className="sm:grid-cols-3!"
           >
             {displayCats
               .filter((cat) => cat.slug !== "bas-havlusu")
@@ -365,7 +367,7 @@ export default async function HomePage() {
               gap: "3.5rem",
               alignItems: "center",
             }}
-            className="lg:grid-cols-2"
+            className="lg:grid-cols-2!"
           >
             {/* Fotoğraf — imalathane görseli tam boyut */}
             <div style={{ position: "relative" }}>
@@ -474,7 +476,7 @@ export default async function HomePage() {
         <div className="wrap">
           <div
             style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }}
-            className="sm:grid-cols-4"
+            className="sm:grid-cols-4!"
           >
             {[
               { v: "450 m²",    l: "Kapalı Üretim\nAlanı" },
@@ -677,6 +679,25 @@ export default async function HomePage() {
       )}
 
       {/* ══════════════════════════════════════
+          OTEL ÜRÜNLERİ — örnekler
+      ══════════════════════════════════════ */}
+      <section className="sec" style={{ background: "var(--warm)" }}>
+        <div className="wrap">
+          <div className="sec-head-line">
+            <div>
+              <span className="eyebrow">Hospitality</span>
+              <h2 className="section-title">Otel Ürünleri</h2>
+            </div>
+            <Link href="/otel-urunleri" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
+              Tümünü Gör
+              <ArrowRight size={13} />
+            </Link>
+          </div>
+          <HotelProductGrid items={HOTEL_PRODUCTS.filter((p) => p.featured)} lang="tr" />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
           EBAT TABLOSU
       ══════════════════════════════════════ */}
       <section className="sec" style={{ background: "var(--cream)" }}>
@@ -688,7 +709,7 @@ export default async function HomePage() {
               gap: "3.5rem",
               alignItems: "center",
             }}
-            className="lg:grid-cols-2"
+            className="lg:grid-cols-2!"
           >
             <div>
               <span className="eyebrow">Ebatlar</span>
@@ -770,7 +791,7 @@ export default async function HomePage() {
               gap: "1px",
               background: "rgba(255,255,255,0.06)",
             }}
-            className="sm:grid-cols-2 lg:grid-cols-4"
+            className="sm:grid-cols-2! lg:grid-cols-4!"
           >
             {FEATS.map((f) => (
               <div
@@ -780,7 +801,7 @@ export default async function HomePage() {
                   padding: "2rem 1.75rem",
                   transition: "background 0.2s",
                 }}
-                className="hover:bg-[var(--navy-2)]"
+                className="hover:bg-[var(--navy-2)]!"
               >
                 <div className="feat-icon-dark" style={{ marginBottom: "1.25rem" }}>
                   <f.icon size={20} color="var(--gold)" />

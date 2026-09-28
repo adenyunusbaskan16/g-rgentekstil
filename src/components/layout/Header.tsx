@@ -73,7 +73,7 @@ export default function Header() {
         }}
       >
         <div
-          className="wrap"
+          className="wrap hdr-wrap"
           style={{
             height: "100%",
             display: "flex",
