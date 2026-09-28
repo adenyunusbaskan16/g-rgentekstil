@@ -265,7 +265,7 @@ export default async function HomePage() {
               {
                 Icon: IconFactory,
                 t: "Toptan Fiyat",
-                d: "En uygun fiyatlar",
+                d: "Teklifle net fiyat",
               },
               {
                 Icon: IconGlobe,

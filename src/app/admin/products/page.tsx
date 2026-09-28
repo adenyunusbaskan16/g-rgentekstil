@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element -- admin küçük resimleri harici Supabase URL'leri */
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Plus, Package, Pencil, Eye, EyeOff, CheckCircle } from "lucide-react";

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Package, Ruler, Weight, Palette, CheckCircle } from "lucide-react";
 import type { Product } from "@/types";
-import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
   product: Product;

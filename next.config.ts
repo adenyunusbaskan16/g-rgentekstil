@@ -129,6 +129,17 @@ const nextConfig: NextConfig = {
         destination: "https://xn--grgentekstil-dlb.com/:path*",
         permanent: true,
       },
+      // Mutfak el havlusu 30x50 (2. ürün) eski adresi → yeni adres
+      {
+        source: "/urunler/jakarli-kismi-kadife-mutfak-el-havlusu-30x50cm-2",
+        destination: "/urunler/jakarli-mutfak-el-havlusu-30x50cm",
+        permanent: true,
+      },
+      {
+        source: "/en/products/jakarli-kismi-kadife-mutfak-el-havlusu-30x50cm-2",
+        destination: "/en/products/jakarli-mutfak-el-havlusu-30x50cm",
+        permanent: true,
+      },
     ];
   },
 

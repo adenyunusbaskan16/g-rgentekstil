@@ -284,6 +284,7 @@ export default function ProductForm({ product, categories, isEdit = false }: Pro
         {/* Mevcut görsel önizleme */}
         {form.image_url ? (
           <div style={{ position: "relative" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={form.image_url}
               alt="Ürün görseli"

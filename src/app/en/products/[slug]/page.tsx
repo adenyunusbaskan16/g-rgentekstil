@@ -6,7 +6,7 @@ import {
   MessageCircle, ChevronRight, ArrowRight,
   Ruler, Package, CheckCircle, ArrowLeft,
 } from "lucide-react";
-import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
+import { COMPANY, SITE_URL } from "@/lib/data";
 import { getProductBySlug, getProducts } from "@/lib/products";
 import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaProduct, schemaBreadcrumb } from "@/lib/schema";
@@ -213,7 +213,7 @@ export default async function EnProductDetailPage({
 
               {/* Trust */}
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                {["Ready stock — same day dispatch possible", "Contact via WhatsApp for wholesale pricing", "Custom color and weight options available"].map((t) => (
+                {["Ready stock — fast dispatch", "Contact via WhatsApp for wholesale pricing", "Custom color and weight options available"].map((t) => (
                   <div key={t} style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
                     <CheckCircle size={13} color="var(--gold)" style={{ flexShrink: 0 }} />
                     <span style={{ fontSize: "0.8rem", color: "var(--muted)" }}>{t}</span>

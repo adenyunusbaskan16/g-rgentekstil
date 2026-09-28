@@ -6,7 +6,7 @@ import {
   MessageCircle, ChevronRight, ArrowRight,
   Ruler, Package, CheckCircle, ArrowLeft,
 } from "lucide-react";
-import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
+import { COMPANY, SITE_URL } from "@/lib/data";
 import { getProductBySlug, getProducts } from "@/lib/products";
 import { PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaProduct, schemaBreadcrumb, schemaOrganization } from "@/lib/schema";
@@ -347,7 +347,7 @@ export default async function UrunDetayPage({
               {/* Güven notu */}
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {[
-                  "Hazır stok — aynı gün sevkiyat imkânı",
+                  "Hazır stok ürünlerde hızlı sevkiyat",
                   "Toptan fiyat için WhatsApp ile görüşün",
                   "Siparişe göre renk ve gramaj seçeneği",
                 ].map((t) => (

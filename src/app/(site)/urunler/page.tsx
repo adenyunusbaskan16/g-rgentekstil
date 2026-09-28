@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MessageCircle, Package, Ruler, ChevronRight, ArrowRight } from "lucide-react";
 import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
-import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
+import { IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import CategoryNav from "@/components/ui/CategoryNav";
 import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
 import HotelProductGrid from "@/components/sections/HotelProductGrid";
@@ -99,7 +99,7 @@ export default async function UrunlerPage() {
         <div className="wrap">
           {grouped.length > 0 ? (
             <div style={{ display: "flex", flexDirection: "column", gap: "5rem" }}>
-              {grouped.map(({ cat, prods }, gi) => (
+              {grouped.map(({ cat, prods }) => (
                 <div key={cat.id} id={cat.slug}>
                   {/* Kategori başlığı — sade */}
                   <div style={{ marginBottom: "1.75rem", paddingBottom: "1rem", borderBottom: "1px solid var(--border)" }}>

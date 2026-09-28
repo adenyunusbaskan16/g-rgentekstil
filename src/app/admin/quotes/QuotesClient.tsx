@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { MessageSquare, Phone, Mail, MapPin, Package, Calendar } from "lucide-react";
+import { MessageSquare, Phone, Mail, MapPin, Calendar } from "lucide-react";
 import type { QuoteRequest } from "@/types";
 import { cn } from "@/lib/utils";
-import { getWhatsAppUrl } from "@/lib/data";
-import { COMPANY } from "@/lib/data";
 
 interface Props { quotes: QuoteRequest[]; }
 

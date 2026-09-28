@@ -24,7 +24,7 @@ export default function AdminSidebar() {
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
-  const SidebarBody = () => (
+  const sidebarBody = (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* Logo */}
       <div style={{ padding: "1.5rem 1.25rem 1.25rem", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
@@ -59,7 +59,7 @@ export default function AdminSidebar() {
     <>
       {/* Desktop */}
       <aside className="adm-sidebar hidden lg:flex flex-col" style={{ position: "sticky", top: 0, maxHeight: "100vh", overflowY: "auto" }}>
-        <SidebarBody />
+        {sidebarBody}
       </aside>
 
       {/* Mobile topbar */}
@@ -77,7 +77,7 @@ export default function AdminSidebar() {
       {mobileOpen && (
         <div className="lg:hidden" style={{ position: "fixed", inset: 0, zIndex: 49, display: "flex" }}>
           <div style={{ width: 240, background: "var(--navy)", overflowY: "auto", paddingTop: 56 }}>
-            <SidebarBody />
+            {sidebarBody}
           </div>
           <div style={{ flex: 1, background: "rgba(0,0,0,0.4)" }} onClick={() => setMobileOpen(false)} />
         </div>
