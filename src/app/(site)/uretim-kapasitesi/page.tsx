@@ -36,7 +36,7 @@ export default function UretimKapasitesiPage() {
     <>
       {/* ── Page Hero ── */}
       <section className="page-hero">
-        <Image src={IMAGES.weaving} alt="" fill style={{ objectFit: "cover", opacity: 0.12 }} quality={30} priority aria-hidden />
+        <Image src={IMAGES.interior} alt="" fill style={{ objectFit: "cover", opacity: 0.16 }} quality={30} priority aria-hidden />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">

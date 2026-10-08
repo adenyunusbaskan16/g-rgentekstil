@@ -20,9 +20,9 @@ export function schemaOrganization() {
     url: BASE,
     logo: {
       "@type": "ImageObject",
-      url: `${BASE}/opengraph-image`,
-      width: 1200,
-      height: 630,
+      url: `${BASE}/logo.png`,
+      width: 512,
+      height: 512,
     },
     image: `${BASE}/opengraph-image`,
     description:

@@ -112,9 +112,8 @@ export const metadata: Metadata = {
 
   /* ── Icons — Next.js otomatik üretiyor (icon.tsx + apple-icon.tsx) ── */
   icons: {
-    other: [
-      { rel: "mask-icon", url: "/icons/safari-pinned-tab.svg", color: "#0a1520" },
-    ],
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
   },
 
   /* ── Manifest ── */

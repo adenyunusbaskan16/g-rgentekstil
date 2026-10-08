@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
 import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
+import VideoBand from "@/components/sections/VideoBand";
 
 export const metadata: Metadata = {
   title: "Machinery | Dobby and Jacquard Towel Weaving",
@@ -36,7 +37,7 @@ export default function MachineryPage() {
   return (
     <>
       <section className="page-hero">
-        <Image src={IMAGES.factory} alt="" fill style={{ objectFit: "cover", opacity: 0.12 }} quality={30} priority aria-hidden />
+        <Image src={IMAGES.machines} alt="" fill style={{ objectFit: "cover", opacity: 0.16 }} quality={30} priority aria-hidden />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">
@@ -81,6 +82,8 @@ export default function MachineryPage() {
           </div>
         </div>
       </section>
+
+      <VideoBand lang="en" />
 
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">

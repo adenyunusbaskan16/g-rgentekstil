@@ -15,6 +15,8 @@ import {
   schemaWebSite, schemaBreadcrumb, schemaFAQ,
 } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
+import VideoBand from "@/components/sections/VideoBand";
+import AboutVisual from "@/components/sections/AboutVisual";
 
 export const revalidate = 60; // Her 60 saniyede yenile
 
@@ -112,7 +114,18 @@ function IconGlobe({ size = 20, color = "currentColor" }: { size?: number; color
 
 export default async function HomePage() {
   const [products, categories] = await Promise.all([getProducts(), getCategories()]);
-  const featured = products.slice(0, 6);
+  // Her kategoriden bir ürün (kategori sırasına göre), en fazla 6
+  const featured = categories
+    .map((c) => products.find((p) => p.category_id === c.id))
+    .filter((p): p is (typeof products)[number] => Boolean(p))
+    .slice(0, 6);
+  // Boş kategori varsa ızgarayı en yeni ürünle tamamla
+  if (featured.length < 6) {
+    const extra = [...products]
+      .sort((a, b) => b.created_at.localeCompare(a.created_at))
+      .filter((p) => !featured.includes(p));
+    featured.push(...extra.slice(0, 6 - featured.length));
+  }
 
   const displayCats =
     categories.length > 0
@@ -369,57 +382,7 @@ export default async function HomePage() {
             }}
             className="lg:grid-cols-2!"
           >
-            {/* Fotoğraf — imalathane görseli tam boyut */}
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "relative", overflow: "hidden" }}>
-                <Image
-                  src={IMAGES.factory}
-                  alt="Gürgentekstil üretim tesisi — Denizli"
-                  width={941}
-                  height={1672}
-                  style={{ width: "100%", height: "auto", display: "block" }}
-                  sizes="(max-width:1024px)100vw,50vw"
-                  quality={85}
-                />
-              </div>
-              {/* Floating badge */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "1rem",
-                  right: "1rem",
-                  background: "var(--navy)",
-                  color: "#fff",
-                  padding: "1rem 1.25rem",
-                  minWidth: 130,
-                  zIndex: 10,
-                  boxShadow: "0 8px 32px rgba(10,21,32,0.35)",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: 800,
-                    color: "var(--gold)",
-                    lineHeight: 1,
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  450m²
-                </p>
-                <p
-                  style={{
-                    fontSize: "0.6rem",
-                    color: "rgba(255,255,255,0.45)",
-                    marginTop: "0.25rem",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Kapalı Üretim Alanı
-                </p>
-              </div>
-            </div>
+            <AboutVisual lang="tr" />
 
             {/* Metin */}
             <div>
@@ -492,6 +455,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <VideoBand lang="tr" />
 
       {/* ══════════════════════════════════════
           ÖNE ÇIKAN ÜRÜNLER
@@ -764,7 +729,7 @@ export default async function HomePage() {
         style={{ background: "var(--navy)", position: "relative", overflow: "hidden" }}
       >
         <Image
-          src={IMAGES.factory}
+          src={IMAGES.machines}
           alt=""
           fill
           aria-hidden

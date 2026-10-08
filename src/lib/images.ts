@@ -11,6 +11,9 @@ export const IMAGES = {
 
   // ── ÜRETİM / HAKKIMIZDA ──────────────────────────────────────────
   factory:    "/images/imalathane.webp",
+  exterior:   "/images/fabrika-dis-cekim.webp", // fabrika dış çekim
+  interior:   "/images/fabrika-ici.webp",       // fabrika içi (stok/son işlem)
+  machines:   "/images/makineler.webp",         // dokuma tezgâhları
   imalathane: "/images/imalathane.webp",
   weaving:    "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1000&q=80&auto=format&fit=crop",
   towelStack: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1000&q=80&auto=format&fit=crop",

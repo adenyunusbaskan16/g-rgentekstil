@@ -12,6 +12,8 @@ import HotelProductGrid from "@/components/sections/HotelProductGrid";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaOrganization, schemaWebSite, schemaBreadcrumb, schemaFAQ } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
+import VideoBand from "@/components/sections/VideoBand";
+import AboutVisual from "@/components/sections/AboutVisual";
 
 export const revalidate = 60; // Her 60 saniyede yenile (TR sayfalarla aynı)
 
@@ -89,7 +91,18 @@ function IconGlobe({ size = 20, color = "currentColor" }: { size?: number; color
 
 export default async function EnHomePage() {
   const [products, categories] = await Promise.all([getProducts(), getCategories()]);
-  const featured = products.slice(0, 6);
+  // One product per category (category order), max 6
+  const featured = categories
+    .map((c) => products.find((p) => p.category_id === c.id))
+    .filter((p): p is (typeof products)[number] => Boolean(p))
+    .slice(0, 6);
+  // Boş kategori varsa ızgarayı en yeni ürünle tamamla
+  if (featured.length < 6) {
+    const extra = [...products]
+      .sort((a, b) => b.created_at.localeCompare(a.created_at))
+      .filter((p) => !featured.includes(p));
+    featured.push(...extra.slice(0, 6 - featured.length));
+  }
 
   const displayCats =
     categories.length > 0
@@ -206,22 +219,7 @@ export default async function EnHomePage() {
       <section className="sec" style={{ background: "var(--warm)" }}>
         <div className="wrap">
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3.5rem", alignItems: "center" }} className="lg:grid-cols-2!">
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "relative", paddingBottom: "65%", overflow: "hidden", background: "var(--cream)" }}>
-                <Image src={IMAGES.factory} alt="Gurgen Tekstil production facility — Denizli" fill style={{ objectFit: "cover" }} sizes="(max-width:1024px)100vw,50vw" quality={80} />
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3px", marginTop: "3px" }}>
-                {[{ src: IMAGES.towelStack, alt: "Towel stack" }, { src: IMAGES.yarn, alt: "Yarn weaving" }].map((img) => (
-                  <div key={img.alt} style={{ position: "relative", paddingBottom: "65%", overflow: "hidden" }}>
-                    <Image src={img.src} alt={img.alt} fill style={{ objectFit: "cover" }} sizes="25vw" quality={75} />
-                  </div>
-                ))}
-              </div>
-              <div style={{ position: "absolute", bottom: "calc(35% + 3px)", right: "-0.75rem", background: "var(--navy)", color: "#fff", padding: "1.25rem 1.5rem", minWidth: 148, zIndex: 10, boxShadow: "0 8px 32px rgba(10,21,32,0.35)" }}>
-                <p style={{ fontSize: "1.875rem", fontWeight: 800, color: "var(--gold)", lineHeight: 1, letterSpacing: "-0.02em" }}>450m²</p>
-                <p style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.45)", marginTop: "0.3rem", letterSpacing: "0.06em", textTransform: "uppercase" }}>Closed Production Area</p>
-              </div>
-            </div>
+            <AboutVisual lang="en" />
             <div>
               <span className="eyebrow">About Us</span>
               <h2 className="section-title" style={{ marginBottom: "1.25rem" }}>
@@ -270,6 +268,8 @@ export default async function EnHomePage() {
           </div>
         </div>
       </section>
+
+      <VideoBand lang="en" />
 
       {/* ── FEATURED PRODUCTS ── */}
       {featured.length > 0 && (
@@ -391,7 +391,7 @@ export default async function EnHomePage() {
 
       {/* ── FEATURES ── */}
       <section className="sec" style={{ background: "var(--navy)", position: "relative", overflow: "hidden" }}>
-        <Image src={IMAGES.factory} alt="" fill aria-hidden style={{ objectFit: "cover", opacity: 0.07 }} quality={30} sizes="100vw" />
+        <Image src={IMAGES.machines} alt="" fill aria-hidden style={{ objectFit: "cover", opacity: 0.07 }} quality={30} sizes="100vw" />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <span className="eyebrow-center">Advantages</span>

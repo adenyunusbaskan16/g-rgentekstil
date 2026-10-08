@@ -246,15 +246,14 @@ export default function KurumsalPage() {
           </div>
           {/* İmalathane görseli tam boyut */}
           <div style={{ overflow: "hidden", border: "1px solid var(--border)" }}>
-            <Image
-              src={IMAGES.factory}
-              alt="Gürgentekstil üretim tesisi — Denizli Merkezefendi"
-              width={941}
-              height={1672}
-              style={{ width: "100%", height: "auto", display: "block" }}
-              sizes="100vw"
-              quality={85}
-            />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3px", background: "var(--border)" }} className="lg:grid-cols-2!">
+              <div style={{ position: "relative", aspectRatio: "1312/1199" }}>
+                <Image src={IMAGES.exterior} alt="Gürgentekstil havlu fabrikası dış görünüm — Denizli Merkezefendi" fill style={{ objectFit: "cover" }} sizes="(max-width:1024px)100vw,50vw" quality={82} />
+              </div>
+              <div style={{ position: "relative", aspectRatio: "1312/1199" }}>
+                <Image src={IMAGES.interior} alt="Gürgentekstil fabrika içi — havlu stok ve son işlem alanı" fill style={{ objectFit: "cover" }} sizes="(max-width:1024px)100vw,50vw" quality={82} />
+              </div>
+            </div>
             {/* Alt bilgi bandı */}
             <div style={{ background: "var(--navy)", padding: "1.25rem 1.75rem", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
               {[

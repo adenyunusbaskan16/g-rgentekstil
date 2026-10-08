@@ -115,8 +115,8 @@ export default function AboutPage() {
         <div className="wrap">
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }} className="lg:grid-cols-3!">
             {[
-              { img: IMAGES.factory,    t: "Production Facility",  d: "450 m² closed production area in Denizli Merkezefendi" },
-              { img: IMAGES.weaving,    t: "Weaving Infrastructure", d: "Dobby and jacquard, imported and domestic next-gen machines" },
+              { img: IMAGES.exterior,   t: "Production Facility",  d: "450 m² closed production area in Denizli Merkezefendi" },
+              { img: IMAGES.machines,   t: "Weaving Infrastructure", d: "Dobby and jacquard, imported and domestic next-gen machines" },
               { img: IMAGES.towelStack, t: "Ready Stock",          d: "Hand, face, foot, kitchen and bath towel groups" },
             ].map((item) => (
               <div key={item.t} style={{ overflow: "hidden", background: "#fff", border: "1px solid var(--border)" }}>

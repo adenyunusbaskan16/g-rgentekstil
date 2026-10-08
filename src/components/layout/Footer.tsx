@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, MessageCircle, MapPin } from "lucide-react";
 import { COMPANY, getWhatsAppUrl } from "@/lib/data";
 
@@ -71,14 +72,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
           <div>
             {/* Logo */}
             <div style={{ marginBottom: "1.25rem" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/icons/logo-dark.svg"
-                alt="Gürgentekstil"
-                width={150}
-                height={34}
-                style={{ height: 34, width: "auto", display: "block" }}
-              />
+              <Image src="/brand/logo-horizontal-light.png" alt="Gürgen Tekstil" width={492} height={140} sizes="210px" style={{ height: 60, width: "auto", display: "block" }} />
             </div>
 
             <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.62)", lineHeight: 1.8, marginBottom: "1.5rem" }}>
