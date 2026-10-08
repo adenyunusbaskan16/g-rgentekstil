@@ -30,8 +30,8 @@ export default function AboutPage() {
   return (
     <>
       <section className="page-hero">
-        <Image src={IMAGES.towelStack} alt="" fill style={{ objectFit: "cover", opacity: 0.1 }} quality={30} priority aria-hidden />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)" }} />
+        <Image src={IMAGES.categories.banyoHavlusu} alt="" fill style={{ objectFit: "cover", opacity: 0.1 }} quality={30} priority aria-hidden />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(17,17,19,0.97) 0%,rgba(17,17,19,0.82) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">
             <Link href="/en">Home</Link>
@@ -117,7 +117,7 @@ export default function AboutPage() {
             {[
               { img: IMAGES.exterior,   t: "Production Facility",  d: "450 m² closed production area in Denizli Merkezefendi" },
               { img: IMAGES.machines,   t: "Weaving Infrastructure", d: "Dobby and jacquard, imported and domestic next-gen machines" },
-              { img: IMAGES.towelStack, t: "Ready Stock",          d: "Hand, face, foot, kitchen and bath towel groups" },
+              { img: IMAGES.categories.toptanGrup, t: "Ready Stock",          d: "Hand, face, foot, kitchen and bath towel groups" },
             ].map((item) => (
               <div key={item.t} style={{ overflow: "hidden", background: "#fff", border: "1px solid var(--border)" }}>
                 <div style={{ position: "relative", paddingBottom: "62%", overflow: "hidden" }}>

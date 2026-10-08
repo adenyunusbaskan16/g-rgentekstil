@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
 import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
+import ImagePair from "@/components/sections/ImagePair";
 
 export const metadata: Metadata = {
   title: "Üretim Kapasitesi — Yıllık 1.216 Ton Havlu Dokuma | Gürgentekstil",
@@ -37,7 +38,7 @@ export default function UretimKapasitesiPage() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <Image src={IMAGES.interior} alt="" fill style={{ objectFit: "cover", opacity: 0.16 }} quality={30} priority aria-hidden />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(17,17,19,0.97) 0%,rgba(17,17,19,0.82) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">
             <Link href="/">Ana Sayfa</Link>
@@ -135,6 +136,11 @@ export default function UretimKapasitesiPage() {
         </div>
       </section>
 
+      <ImagePair
+        a={{ src: IMAGES.interior, alt: "Gürgentekstil fabrika içi — hazır stok ve son işlem alanı" }}
+        b={{ src: IMAGES.exterior, alt: "Gürgentekstil fabrika binası — Denizli" }}
+      />
+
       {/* Süreç adımları */}
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">
@@ -145,9 +151,7 @@ export default function UretimKapasitesiPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(180px,1fr))", gap: "1px", background: "var(--border)" }}>
             {steps.map((s) => (
               <div key={s.n} style={{ background: "#fff", padding: "1.75rem 1.25rem", textAlign: "center" }}>
-                <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--navy)", color: "var(--gold)", fontSize: "0.75rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1rem" }}>
-                  {s.n}
-                </div>
+                <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--navy)", color: "var(--gold)", fontSize: "0.75rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1rem" }}><CheckCircle size={18} aria-hidden /></div>
                 <p style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.4rem", fontSize: "0.875rem" }}>{s.t}</p>
                 <p style={{ fontSize: "0.8rem", color: "var(--muted)", lineHeight: 1.6 }}>{s.d}</p>
               </div>

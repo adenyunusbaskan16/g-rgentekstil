@@ -60,7 +60,7 @@ export default function ProductCard({ product, lang = "tr" }: ProductCardProps) 
         )}
 
         {/* Ürün adı */}
-        <h3 className="text-base font-bold text-[#1a2744] mb-2 leading-snug">{name}</h3>
+        <h3 className="text-base font-bold text-[#18181b] mb-2 leading-snug">{name}</h3>
 
         {/* Açıklama */}
         {description && (

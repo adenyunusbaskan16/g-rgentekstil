@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
 import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
+import ImagePair from "@/components/sections/ImagePair";
 
 export const metadata: Metadata = {
   title: "Machinery | Dobby and Jacquard Towel Weaving",
@@ -37,7 +38,7 @@ export default function MachineryPage() {
     <>
       <section className="page-hero">
         <Image src={IMAGES.machines} alt="" fill style={{ objectFit: "cover", opacity: 0.16 }} quality={30} priority aria-hidden />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(17,17,19,0.97) 0%,rgba(17,17,19,0.82) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">
             <Link href="/en">Home</Link>
@@ -64,9 +65,6 @@ export default function MachineryPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(290px,1fr))", gap: "1.5rem" }}>
             {machines.map((m) => (
               <div key={m.n} style={{ background: "#fff", border: "1px solid var(--border)", padding: "2rem 1.75rem", transition: "border-color 0.22s, box-shadow 0.22s" }} className="hover:border-[var(--gold)]! hover:shadow-lg!">
-                <div style={{ width: 44, height: 44, background: "var(--navy)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.25rem" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--gold)" }}>{m.n}</span>
-                </div>
                 <h3 style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.625rem", fontSize: "1rem" }}>{m.t}</h3>
                 <p className="body-sm" style={{ marginBottom: "1.125rem" }}>{m.d}</p>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
@@ -81,6 +79,11 @@ export default function MachineryPage() {
           </div>
         </div>
       </section>
+
+      <ImagePair
+        a={{ src: IMAGES.machines, alt: "Gurgen Tekstil weaving looms — dobby and jacquard machines" }}
+        b={{ src: IMAGES.factory, alt: "Towel fabric being woven on a loom" }}
+      />
 
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">

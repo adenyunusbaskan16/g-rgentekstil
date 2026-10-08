@@ -72,7 +72,9 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
           <div>
             {/* Logo */}
             <div style={{ marginBottom: "1.25rem" }}>
-              <Image src="/brand/logo-horizontal-light.png" alt="Gürgen Tekstil" width={492} height={140} sizes="210px" style={{ height: 60, width: "auto", display: "block" }} />
+              <Link href={isEn ? "/en" : "/"} aria-label={isEn ? "Gürgen Tekstil — Home" : "Gürgen Tekstil — Ana Sayfa"} style={{ display: "inline-block" }}>
+                <Image src="/brand/logo-horizontal-light.png" alt="Gürgen Tekstil" width={492} height={140} sizes="210px" style={{ height: 60, width: "auto", display: "block" }} />
+              </Link>
             </div>
 
             <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.62)", lineHeight: 1.8, marginBottom: "1.5rem" }}>
@@ -175,17 +177,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
         >
           <p style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)" }}>
             &copy; {new Date().getFullYear()} GürgenTekstil.{" "}
-            {isEn ? "All rights reserved." : "Tüm hakları saklıdır."}{" "}
-            <span style={{ color: "rgba(255,255,255,0.25)" }}>|</span>{" "}
-            <a
-              href="https://hayb.com.tr"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.18s" }}
-              className="hover:!text-white"
-            >
-              HAYB Dijital Sistemler
-            </a>
+            {isEn ? "All rights reserved." : "Tüm hakları saklıdır."}
           </p>
           <Link
             href={isEn ? "/en/privacy" : "/kvkk"}
@@ -194,6 +186,17 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
           >
             {isEn ? "Privacy Policy" : "KVKK"}
           </Link>
+        </div>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "0.875rem 0 1rem", textAlign: "center" }}>
+          <a
+            href="https://hayb.com.tr"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.18em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.18s" }}
+            className="hover:!text-white"
+          >
+            HAYB
+          </a>
         </div>
       </div>
     </footer>

@@ -48,10 +48,10 @@ export default function IletisimPage() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <Image
-          src={IMAGES.factory}
+          src={IMAGES.exterior}
           alt=""
           fill
-          style={{ objectFit: "cover", opacity: 0.09 }}
+          style={{ objectFit: "cover", objectPosition: "center 40%" }}
           quality={30}
           priority
           aria-hidden
@@ -60,7 +60,7 @@ export default function IletisimPage() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)",
+            background: "linear-gradient(100deg,rgba(17,17,19,0.92) 0%,rgba(17,17,19,0.72) 45%,rgba(17,17,19,0.35) 100%)",
           }}
         />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>

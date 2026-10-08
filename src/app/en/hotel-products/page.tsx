@@ -204,7 +204,7 @@ export default function HotelProductsPage() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)",
+            background: "linear-gradient(120deg,rgba(17,17,19,0.97) 0%,rgba(17,17,19,0.82) 100%)",
           }}
         />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>

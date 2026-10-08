@@ -1,14 +1,12 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight, MessageCircle, CheckCircle,
-  Package, Ruler, Award, Truck, Settings, Users,
-} from "lucide-react";
-import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
+import { ArrowRight, MessageCircle, CheckCircle, Award, Truck, Settings, Users } from "lucide-react";
+import { PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
-import HotelProductGrid from "@/components/sections/HotelProductGrid";
+import CompactTiles from "@/components/sections/CompactTiles";
+import SplashIntro from "@/components/SplashIntro";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import {
   schemaOrganization, schemaLocalBusiness,
@@ -159,6 +157,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <SplashIntro />
       {/* ══════════════════════════════════════
           HERO
       ══════════════════════════════════════ */}
@@ -177,7 +176,7 @@ export default async function HomePage() {
           className="hero-bg"
           style={{
             background:
-              "linear-gradient(110deg, rgba(8,15,26,0.92) 0%, rgba(8,15,26,0.75) 38%, rgba(8,15,26,0.4) 62%, rgba(8,15,26,0.15) 100%)",
+              "linear-gradient(110deg, rgba(17,17,19,0.92) 0%, rgba(17,17,19,0.75) 38%, rgba(17,17,19,0.4) 62%, rgba(17,17,19,0.15) 100%)",
           }}
         />
 
@@ -215,40 +214,6 @@ export default async function HomePage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "2rem",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 2,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "0.4rem",
-            opacity: 0.35,
-          }}
-          aria-hidden
-        >
-          <div
-            style={{
-              width: "1px",
-              height: "40px",
-              background: "linear-gradient(to bottom, rgba(184,150,90,0.9), transparent)",
-            }}
-          />
-          <span
-            style={{
-              fontSize: "0.55rem",
-              color: "#fff",
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-            }}
-          >
-            Scroll
-          </span>
-        </div>
       </section>
 
       {/* ══════════════════════════════════════
@@ -455,207 +420,47 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          ÖNE ÇIKAN ÜRÜNLER
-      ══════════════════════════════════════ */}
-      {featured.length > 0 && (
-        <section className="sec" style={{ background: "#fff" }}>
-          <div className="wrap">
-            <div className="sec-head-line">
-              <div>
-                <span className="eyebrow">Katalog</span>
-                <h2 className="section-title">Öne Çıkan Ürünler</h2>
-              </div>
-              <Link href="/urunler" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
-                Tümünü Gör
-                <ArrowRight size={13} />
-              </Link>
-            </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-                gap: "1.25rem",
-              }}
-            >
-              {featured.map((p, i) => (
-                <article key={p.id} className="prod-card">
-                  <div
-                    className="prod-img-wrap"
-                    style={{ aspectRatio: "3/4", position: "relative", background: "#f8f5f0" }}
-                  >
-                    <Image
-                      src={p.image_url ?? PRODUCT_FALLBACK_IMAGES[i % PRODUCT_FALLBACK_IMAGES.length]}
-                      alt={p.image_alt_tr ?? p.name_tr}
-                      fill
-                      style={{ objectFit: "contain", padding: "0.5rem", transition: "transform 0.45s cubic-bezier(0.4,0,0.2,1)" }}
-                      sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
-                      quality={75}
-                    />
-                    {p.is_stock_available && (
-                      <span
-                        className="badge badge-gold"
-                        style={{ position: "absolute", top: "0.875rem", left: "0.875rem" }}
-                      >
-                        Stokta
-                      </span>
-                    )}
-                  </div>
-                  <div style={{ padding: "1.375rem" }}>
-                    {p.category && (
-                      <p
-                        style={{
-                          fontSize: "0.6rem",
-                          fontWeight: 700,
-                          letterSpacing: "0.2em",
-                          color: "var(--gold)",
-                          textTransform: "uppercase",
-                          marginBottom: "0.3rem",
-                        }}
-                      >
-                        {p.category.name_tr}
-                      </p>
-                    )}
-                    <h3
-                      style={{
-                        fontWeight: 700,
-                        color: "var(--navy)",
-                        marginBottom: "0.75rem",
-                        fontSize: "0.9375rem",
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {p.name_tr}
-                    </h3>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.35rem",
-                        marginBottom: "1rem",
-                      }}
-                    >
-                      {p.size && (
-                        <div
-                          style={{
-                            display: "flex",
-                            gap: "0.5rem",
-                            fontSize: "0.8rem",
-                            color: "var(--muted)",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Ruler size={12} color="var(--gold)" style={{ flexShrink: 0 }} />
-                          Ebat:{" "}
-                          <strong style={{ color: "var(--navy)" }}>{p.size}</strong>
-                        </div>
-                      )}
-                      {p.weight_label && (
-                        <div
-                          style={{
-                            display: "flex",
-                            gap: "0.5rem",
-                            fontSize: "0.8rem",
-                            color: "var(--muted)",
-                            alignItems: "center",
-                          }}
-                        >
-                          <span
-                            style={{
-                              fontWeight: 800,
-                              fontSize: "0.65rem",
-                              color: "var(--gold)",
-                              flexShrink: 0,
-                            }}
-                          >
-                            gr
-                          </span>
-                          Gramaj:{" "}
-                          <strong style={{ color: "var(--navy)" }}>{p.weight_label}</strong>
-                        </div>
-                      )}
-                      {p.sale_unit && (
-                        <div
-                          style={{
-                            display: "flex",
-                            gap: "0.5rem",
-                            fontSize: "0.8rem",
-                            color: "var(--muted)",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Package size={12} color="var(--gold)" style={{ flexShrink: 0 }} />
-                          Birim:{" "}
-                          <strong style={{ color: "var(--navy)" }}>{p.sale_unit}</strong>
-                        </div>
-                      )}
-                    </div>
-                    {p.color_options?.length > 0 && (
-                      <div style={{ marginBottom: "1rem" }}>
-                        <p
-                          style={{
-                            fontSize: "0.6rem",
-                            fontWeight: 700,
-                            letterSpacing: "0.12em",
-                            textTransform: "uppercase",
-                            color: "var(--muted)",
-                            marginBottom: "0.375rem",
-                          }}
-                        >
-                          Renkler
-                        </p>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem" }}>
-                          {p.color_options.map((c) => (
-                            <span
-                              key={c}
-                              style={{
-                                padding: "0.2rem 0.55rem",
-                                border: "1px solid var(--border)",
-                                fontSize: "0.7rem",
-                                color: "var(--muted)",
-                              }}
-                            >
-                              {c}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    <a
-                      href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(
-                        `Merhabalar, İnternet Sitenizden Ulaşıyorum. ${p.name_tr} hakkında bilgi almak istiyorum.`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-wa btn-sm btn-fw"
-                    >
-                      <MessageCircle size={13} />
-                      Teklif Al
-                    </a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ══════════════════════════════════════
-          OTEL ÜRÜNLERİ — örnekler
-      ══════════════════════════════════════ */}
-      <section className="sec" style={{ background: "var(--warm)" }}>
+      {/* ── ÜRÜNLER (sade kartlar) ── */}
+      <section className="sec" style={{ background: "#fff" }}>
         <div className="wrap">
           <div className="sec-head-line">
+            <div>
+              <span className="eyebrow">Katalog</span>
+              <h2 className="section-title">Öne Çıkan Ürünler</h2>
+            </div>
+            <Link href="/urunler" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
+              Tümünü Gör <ArrowRight size={13} />
+            </Link>
+          </div>
+          <CompactTiles
+            tiles={featured.map((p, i) => ({
+              key: p.id,
+              href: `/urunler/${p.slug}`,
+              name: p.name_tr,
+              meta: [p.category?.name_tr, p.size].filter(Boolean).join(" · "),
+              image: p.image_url ?? PRODUCT_FALLBACK_IMAGES[i % PRODUCT_FALLBACK_IMAGES.length],
+              alt: p.image_alt_tr ?? p.name_tr,
+            }))}
+          />
+
+          <div className="sec-head-line" style={{ marginTop: "4rem" }}>
             <div>
               <span className="eyebrow">Hospitality</span>
               <h2 className="section-title">Otel Ürünleri</h2>
             </div>
             <Link href="/otel-urunleri" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
-              Tümünü Gör
-              <ArrowRight size={13} />
+              Tümünü Gör <ArrowRight size={13} />
             </Link>
           </div>
-          <HotelProductGrid items={HOTEL_PRODUCTS.filter((p) => p.featured)} lang="tr" />
+          <CompactTiles
+            tiles={HOTEL_PRODUCTS.filter((p) => p.featured).map((p) => ({
+              key: p.id,
+              href: `/otel-urunleri#${p.anchor_tr}`,
+              name: p.name_tr,
+              image: p.image,
+              alt: p.name_tr,
+            }))}
+          />
         </div>
       </section>
 
@@ -794,88 +599,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          KALİTE / SERTIFIKA BANDI
-      ══════════════════════════════════════ */}
-      <section className="cert-strip">
-        <div className="wrap">
-          <p
-            style={{
-              fontSize: "0.6rem",
-              fontWeight: 700,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
-              textAlign: "center",
-              marginBottom: "1.75rem",
-            }}
-          >
-            Kalite Standartları &amp; Üretim Güvencesi
-          </p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexWrap: "wrap",
-              gap: "2rem",
-            }}
-          >
-            {[
-              {
-                label: "Sipariş Garantisi",
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="1.5">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                ),
-              },
-              {
-                label: "Kalite Kontrolü",
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M9 12l2 2 4-4"/>
-                  </svg>
-                ),
-              },
-              {
-                label: "%100 Pamuk",
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="1.5">
-                    <path d="M12 22V12"/>
-                    <path d="M12 12C12 12 7 9 7 5a5 5 0 0 1 10 0c0 4-5 7-5 7z"/>
-                    <path d="M12 12C12 12 7 15 5 18"/>
-                    <path d="M12 12C12 12 17 15 19 18"/>
-                  </svg>
-                ),
-              },
-              {
-                label: "Yerli Üretim",
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="1.5">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                    <polyline points="9 22 9 12 15 12 15 22"/>
-                  </svg>
-                ),
-              },
-              {
-                label: "İhracat Deneyimi",
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                  </svg>
-                ),
-              },
-            ].map((cert) => (
-              <div key={cert.label} className="cert-item">
-                <div className="cert-icon-wrap">{cert.icon}</div>
-                <span className="cert-label">{cert.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ══════════════════════════════════════
           CTA BÖLÜMÜ
@@ -897,7 +620,7 @@ export default async function HomePage() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(135deg, rgba(10,21,32,0.95) 0%, rgba(10,21,32,0.88) 100%)",
+            background: "linear-gradient(135deg, rgba(17,17,19,0.95) 0%, rgba(17,17,19,0.88) 100%)",
           }}
         />
         <div

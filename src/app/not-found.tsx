@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <div style={{
       minHeight: "100svh",
-      background: "linear-gradient(155deg,#07131f 0%,#0b1d35 50%,#122240 100%)",
+      background: "linear-gradient(155deg,#0e0e10 0%,#18181b 50%,#27272a 100%)",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",

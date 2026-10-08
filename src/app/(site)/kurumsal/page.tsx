@@ -30,7 +30,7 @@ export default function KurumsalPage() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <Image
-          src={IMAGES.towelStack}
+          src={IMAGES.categories.banyoHavlusu}
           alt=""
           fill
           style={{ objectFit: "cover", opacity: 0.1 }}

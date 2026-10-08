@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, MessageCircle, MapPin, ExternalLink, ChevronRight } from "lucide-react";
 import { COMPANY, getWhatsAppUrl, SITE_URL } from "@/lib/data";
+import { IMAGES } from "@/lib/images";
 import QuoteForm from "@/components/sections/QuoteForm";
 
 export const metadata: Metadata = {
@@ -29,7 +31,8 @@ export default function EnContactPage() {
   return (
     <>
       <section className="page-hero">
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.9) 100%)" }} />
+        <Image src={IMAGES.exterior} alt="" fill priority aria-hidden style={{ objectFit: "cover", objectPosition: "center 40%" }} sizes="100vw" quality={70} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(100deg,rgba(17,17,19,0.92) 0%,rgba(17,17,19,0.72) 45%,rgba(17,17,19,0.35) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">
             <Link href="/en">Home</Link>

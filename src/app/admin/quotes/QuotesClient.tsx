@@ -50,7 +50,7 @@ export default function QuotesClient({ quotes }: Props) {
               onClick={() => setFilter(val)}
               className={cn(
                 "px-3 py-1.5 text-xs font-semibold rounded-full border transition-all",
-                filter === val ? "bg-[#1a2744] text-white border-[#1a2744]" : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+                filter === val ? "bg-[#18181b] text-white border-[#18181b]" : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
               )}
             >
               {lbl} ({val === "all" ? quotes.length : quotes.filter((q) => q.status === val).length})
@@ -107,7 +107,7 @@ export default function QuotesClient({ quotes }: Props) {
           <div className="bg-white border border-gray-200 rounded-2xl p-6 space-y-5 sticky top-20">
             <div className="flex items-start justify-between">
               <div>
-                <h2 className="font-bold text-[#1a2744] text-lg">{selected.full_name}</h2>
+                <h2 className="font-bold text-[#18181b] text-lg">{selected.full_name}</h2>
                 {selected.company_name && <p className="text-sm text-gray-500">{selected.company_name}</p>}
               </div>
               <span className={cn("text-xs px-2.5 py-1 rounded-full font-medium", statusLabels[selected.status ?? "new"].cls)}>

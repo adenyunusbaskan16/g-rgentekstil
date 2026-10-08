@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
 import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
+import ImagePair from "@/components/sections/ImagePair";
 
 export const metadata: Metadata = {
   title: "Makine Parkuru — Armurlu ve Jakarli Dokuma | Gürgentekstil",
@@ -46,7 +47,7 @@ export default function MakineParkuruPage() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <Image src={IMAGES.machines} alt="" fill style={{ objectFit: "cover", opacity: 0.16 }} quality={30} priority aria-hidden />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.82) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(17,17,19,0.97) 0%,rgba(17,17,19,0.82) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">
             <Link href="/">Ana Sayfa</Link>
@@ -87,13 +88,6 @@ export default function MakineParkuruPage() {
               }}
                 className="hover:border-[var(--gold)]! hover:shadow-lg!">
                 {/* Numara */}
-                <div style={{
-                  width: 44, height: 44, background: "var(--navy)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  marginBottom: "1.25rem",
-                }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--gold)" }}>{m.n}</span>
-                </div>
                 <h3 style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.625rem", fontSize: "1rem" }}>{m.t}</h3>
                 <p className="body-sm" style={{ marginBottom: "1.125rem" }}>{m.d}</p>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
@@ -108,6 +102,11 @@ export default function MakineParkuruPage() {
           </div>
         </div>
       </section>
+
+      <ImagePair
+        a={{ src: IMAGES.machines, alt: "Gürgentekstil dokuma tezgâhları — armürlü ve jakarlı makineler" }}
+        b={{ src: IMAGES.factory, alt: "Dokuma makinesinde havlu kumaş üretimi" }}
+      />
 
       {/* Teknik tablo */}
       <section className="sec" style={{ background: "var(--cream)" }}>

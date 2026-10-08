@@ -1,14 +1,12 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight, MessageCircle, CheckCircle,
-  Package, Ruler, Award, Truck, Settings, Users,
-} from "lucide-react";
-import { COMPANY, PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
+import { ArrowRight, MessageCircle, CheckCircle, Award, Truck, Settings, Users } from "lucide-react";
+import { PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
-import HotelProductGrid from "@/components/sections/HotelProductGrid";
+import CompactTiles from "@/components/sections/CompactTiles";
+import SplashIntro from "@/components/SplashIntro";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaOrganization, schemaWebSite, schemaBreadcrumb, schemaFAQ } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
@@ -115,6 +113,7 @@ export default async function EnHomePage() {
 
   return (
     <>
+      <SplashIntro />
       {/* ── HERO ── */}
       <section className="hero">
         <Image
@@ -126,7 +125,7 @@ export default async function EnHomePage() {
         />
         <div
           className="hero-bg"
-          style={{ background: "linear-gradient(110deg,rgba(8,15,26,0.92) 0%,rgba(8,15,26,0.75) 38%,rgba(8,15,26,0.4) 62%,rgba(8,15,26,0.15) 100%)" }}
+          style={{ background: "linear-gradient(110deg,rgba(17,17,19,0.92) 0%,rgba(17,17,19,0.75) 38%,rgba(17,17,19,0.4) 62%,rgba(17,17,19,0.15) 100%)" }}
         />
         <div className="wrap hero-content">
           <div style={{ maxWidth: 600 }}>
@@ -147,10 +146,6 @@ export default async function EnHomePage() {
               </a>
             </div>
           </div>
-        </div>
-        <div style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.4rem", opacity: 0.35 }} aria-hidden>
-          <div style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom,rgba(184,150,90,0.9),transparent)" }} />
-          <span style={{ fontSize: "0.55rem", color: "#fff", letterSpacing: "0.25em", textTransform: "uppercase" }}>Scroll</span>
         </div>
       </section>
 
@@ -268,82 +263,30 @@ export default async function EnHomePage() {
         </div>
       </section>
 
-      {/* ── FEATURED PRODUCTS ── */}
-      {featured.length > 0 && (
-        <section className="sec" style={{ background: "#fff" }}>
-          <div className="wrap">
-            <div className="sec-head-line">
-              <div>
-                <span className="eyebrow">Catalogue</span>
-                <h2 className="section-title">Featured Products</h2>
-              </div>
-              <Link href="/en/products" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
-                View All <ArrowRight size={13} />
-              </Link>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))", gap: "1.25rem" }}>
-              {featured.map((p, i) => (
-                <article key={p.id} className="prod-card">
-                  <div className="prod-img-wrap" style={{ aspectRatio: "3/4", position: "relative", background: "#f8f5f0" }}>
-                    <Image
-                      src={p.image_url ?? PRODUCT_FALLBACK_IMAGES[i % PRODUCT_FALLBACK_IMAGES.length]}
-                      alt={p.image_alt_en ?? p.name_en}
-                      fill
-                      style={{ objectFit: "contain", padding: "0.5rem", transition: "transform 0.45s cubic-bezier(0.4,0,0.2,1)" }}
-                      sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" quality={75}
-                    />
-                    {p.is_stock_available && (
-                      <span className="badge badge-gold" style={{ position: "absolute", top: "0.875rem", left: "0.875rem" }}>In Stock</span>
-                    )}
-                  </div>
-                  <div style={{ padding: "1.375rem" }}>
-                    {p.category && (
-                      <p style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.2em", color: "var(--gold)", textTransform: "uppercase", marginBottom: "0.3rem" }}>
-                        {p.category.name_en}
-                      </p>
-                    )}
-                    <h3 style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.75rem", fontSize: "0.9375rem", lineHeight: 1.3 }}>
-                      {p.name_en}
-                    </h3>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem", marginBottom: "1rem" }}>
-                      {p.size && (
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "var(--muted)" }}>
-                          <Ruler size={12} color="var(--gold)" style={{ flexShrink: 0 }} />
-                          Size: <strong style={{ color: "var(--navy)" }}>{p.size}</strong>
-                        </div>
-                      )}
-                      {p.weight_label && (
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "var(--muted)" }}>
-                          <span style={{ fontWeight: 800, fontSize: "0.65rem", color: "var(--gold)", flexShrink: 0 }}>gr</span>
-                          Weight: <strong style={{ color: "var(--navy)" }}>{p.weight_label}</strong>
-                        </div>
-                      )}
-                      {p.sale_unit && (
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "var(--muted)" }}>
-                          <Package size={12} color="var(--gold)" style={{ flexShrink: 0 }} />
-                          Unit: <strong style={{ color: "var(--navy)" }}>{p.sale_unit}</strong>
-                        </div>
-                      )}
-                    </div>
-                    <a
-                      href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(`Hello, I would like to get a quote for ${p.name_en}.`)}`}
-                      target="_blank" rel="noopener noreferrer"
-                      className="btn btn-wa btn-sm btn-fw"
-                    >
-                      <MessageCircle size={13} /> Get a Quote
-                    </a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── HOTEL PRODUCTS — samples ── */}
-      <section className="sec" style={{ background: "var(--warm)" }}>
+      {/* ── ÜRÜNLER (sade kartlar) ── */}
+      <section className="sec" style={{ background: "#fff" }}>
         <div className="wrap">
           <div className="sec-head-line">
+            <div>
+              <span className="eyebrow">Catalogue</span>
+              <h2 className="section-title">Featured Products</h2>
+            </div>
+            <Link href="/en/products" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
+              View All <ArrowRight size={13} />
+            </Link>
+          </div>
+          <CompactTiles
+            tiles={featured.map((p, i) => ({
+              key: p.id,
+              href: `/en/products/${p.slug}`,
+              name: p.name_en,
+              meta: [p.category?.name_en, p.size].filter(Boolean).join(" · "),
+              image: p.image_url ?? PRODUCT_FALLBACK_IMAGES[i % PRODUCT_FALLBACK_IMAGES.length],
+              alt: p.image_alt_en ?? p.name_en,
+            }))}
+          />
+
+          <div className="sec-head-line" style={{ marginTop: "4rem" }}>
             <div>
               <span className="eyebrow">Hospitality</span>
               <h2 className="section-title">Hotel Products</h2>
@@ -352,7 +295,15 @@ export default async function EnHomePage() {
               View All <ArrowRight size={13} />
             </Link>
           </div>
-          <HotelProductGrid items={HOTEL_PRODUCTS.filter((p) => p.featured)} lang="en" />
+          <CompactTiles
+            tiles={HOTEL_PRODUCTS.filter((p) => p.featured).map((p) => ({
+              key: p.id,
+              href: `/en/hotel-products#${p.anchor_en}`,
+              name: p.name_en,
+              image: p.image,
+              alt: p.name_en,
+            }))}
+          />
         </div>
       </section>
 
@@ -411,7 +362,7 @@ export default async function EnHomePage() {
       {/* ── CTA ── */}
       <section style={{ position: "relative", overflow: "hidden" }} className="sec">
         <Image src={IMAGES.towelStack} alt="" fill aria-hidden style={{ objectFit: "cover" }} quality={60} sizes="100vw" />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(10,21,32,0.95) 0%,rgba(10,21,32,0.88) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(17,17,19,0.95) 0%,rgba(17,17,19,0.88) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
           <span className="eyebrow-center">Contact</span>
           <h2 className="section-title-light" style={{ maxWidth: "18ch", margin: "0 auto 1rem" }}>

@@ -41,7 +41,7 @@ export default function StatCard({ value, label, icon, light = false }: StatCard
       <p
         className={cn(
           "text-2xl md:text-3xl font-extrabold mb-1",
-          light ? "text-white" : "text-[#1a2744]"
+          light ? "text-white" : "text-[#18181b]"
         )}
       >
         {value}

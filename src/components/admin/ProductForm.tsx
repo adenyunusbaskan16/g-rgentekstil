@@ -81,7 +81,7 @@ function ToggleSwitch({
         onClick={() => onChange(name, !checked)}
         style={{
           width: 48, height: 28, flexShrink: 0,
-          background: checked ? "#1a2332" : "#d1d5db",
+          background: checked ? "#18181b" : "#d1d5db",
           borderRadius: 99, position: "relative", cursor: "pointer",
           transition: "background 0.2s",
         }}
@@ -314,7 +314,7 @@ export default function ProductForm({ product, categories, isEdit = false }: Pro
           onDrop={(e) => { e.preventDefault(); setDragOver(false); const f = e.dataTransfer.files[0]; if (f) uploadFile(f); }}
           style={{
             width: "100%", padding: "1.25rem 1rem",
-            border: `2px dashed ${dragOver ? "#1a2332" : "#d1d5db"}`,
+            border: `2px dashed ${dragOver ? "#18181b" : "#d1d5db"}`,
             borderRadius: 10, background: dragOver ? "#f0f4ff" : "#fafafa",
             display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem",
             cursor: "pointer", transition: "border-color 0.18s, background 0.18s",
@@ -325,7 +325,7 @@ export default function ProductForm({ product, categories, isEdit = false }: Pro
             <>
               <svg style={{ width: 24, height: 24, animation: "spin 1s linear infinite" }} viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="12" r="10" stroke="#9ca3af" strokeWidth="4" opacity={0.25} />
-                <path fill="#1a2332" d="M4 12a8 8 0 018-8v8H4z" opacity={0.75} />
+                <path fill="#18181b" d="M4 12a8 8 0 018-8v8H4z" opacity={0.75} />
               </svg>
               <span style={{ fontSize: "0.8125rem", color: "#6b7280" }}>Yükleniyor...</span>
             </>
@@ -489,7 +489,7 @@ export default function ProductForm({ product, categories, isEdit = false }: Pro
         style={{
           width: "100%", padding: "1rem 1.5rem",
           display: "flex", alignItems: "center", justifyContent: "center", gap: "0.625rem",
-          background: saveState === "success" ? "#16a34a" : "#1a2332",
+          background: saveState === "success" ? "#16a34a" : "#18181b",
           color: "#fff", border: "none", borderRadius: 10,
           fontSize: "1rem", fontWeight: 700,
           cursor: saveState === "saving" ? "wait" : "pointer",

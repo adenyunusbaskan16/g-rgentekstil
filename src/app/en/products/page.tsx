@@ -38,7 +38,7 @@ export default async function EnProductsPage() {
   return (
     <>
       <section className="page-hero">
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(8,15,26,0.97) 0%,rgba(8,15,26,0.9) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg,rgba(17,17,19,0.97) 0%,rgba(17,17,19,0.9) 100%)" }} />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <nav className="breadcrumb">
             <Link href="/en">Home</Link>

@@ -32,7 +32,7 @@ export default function SectionTitle({
           Tag === "h1" && "text-3xl md:text-4xl lg:text-5xl",
           Tag === "h2" && "text-2xl md:text-3xl lg:text-4xl",
           Tag === "h3" && "text-xl md:text-2xl",
-          light ? "text-white" : "text-[#1a2744]"
+          light ? "text-white" : "text-[#18181b]"
         )}
       >
         {title}

@@ -14,13 +14,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        "bg-[#1a2744] hover:bg-[#243460] text-white focus-visible:ring-[#1a2744]",
+        "bg-[#18181b] hover:bg-[#243460] text-white focus-visible:ring-[#18181b]",
       secondary:
         "bg-gray-100 hover:bg-gray-200 text-gray-800 focus-visible:ring-gray-400",
       whatsapp:
         "bg-[#25D366] hover:bg-[#20ba5a] text-white focus-visible:ring-[#25D366] shadow-sm",
       outline:
-        "border-2 border-[#1a2744] text-[#1a2744] hover:bg-[#1a2744] hover:text-white focus-visible:ring-[#1a2744]",
+        "border-2 border-[#18181b] text-[#18181b] hover:bg-[#18181b] hover:text-white focus-visible:ring-[#18181b]",
       ghost:
         "text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-gray-300",
       danger:
