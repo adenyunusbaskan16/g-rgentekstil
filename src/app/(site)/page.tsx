@@ -15,7 +15,6 @@ import {
   schemaWebSite, schemaBreadcrumb, schemaFAQ,
 } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
-import VideoBand from "@/components/sections/VideoBand";
 import AboutVisual from "@/components/sections/AboutVisual";
 
 export const revalidate = 60; // Her 60 saniyede yenile
@@ -455,8 +454,6 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-
-      <VideoBand lang="tr" />
 
       {/* ══════════════════════════════════════
           ÖNE ÇIKAN ÜRÜNLER

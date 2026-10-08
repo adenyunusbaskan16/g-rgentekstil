@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
 import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
-import VideoBand from "@/components/sections/VideoBand";
 
 export const metadata: Metadata = {
   title: "Makine Parkuru — Armurlu ve Jakarli Dokuma | Gürgentekstil",
@@ -109,8 +108,6 @@ export default function MakineParkuruPage() {
           </div>
         </div>
       </section>
-
-      <VideoBand lang="tr" />
 
       {/* Teknik tablo */}
       <section className="sec" style={{ background: "var(--cream)" }}>

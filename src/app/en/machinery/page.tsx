@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle, ChevronRight } from "lucide-react";
 import { getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { IMAGES } from "@/lib/images";
-import VideoBand from "@/components/sections/VideoBand";
 
 export const metadata: Metadata = {
   title: "Machinery | Dobby and Jacquard Towel Weaving",
@@ -82,8 +81,6 @@ export default function MachineryPage() {
           </div>
         </div>
       </section>
-
-      <VideoBand lang="en" />
 
       <section className="sec" style={{ background: "var(--cream)" }}>
         <div className="wrap">

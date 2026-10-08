@@ -1082,20 +1082,7 @@ textarea.f-input { resize: vertical; min-height: 120px; }
 .eyebrow::before { transition: width .5s ease; }
 .rv-in .eyebrow::before, .rv-in.eyebrow::before { width: 32px; }
 
-/* ═══════════════════════════════════════════
-   FABRİKA VİDEOSU
-═══════════════════════════════════════════ */
-.video-band { position: relative; overflow: hidden; background: var(--navy-4); min-height: 520px; display: flex; align-items: flex-end; }
-@media (min-width: 768px) { .video-band { min-height: 0; aspect-ratio: 21/9; max-height: 640px; align-items: center; } }
-@media (max-width: 640px) and (orientation: portrait) { .video-band { min-height: 0; aspect-ratio: 9/14; } }
-.video-band::after { content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(8,15,26,.88) 0%, rgba(8,15,26,.55) 45%, rgba(8,15,26,.15) 100%); }
-@media (max-width: 767px) { .video-band::after { background: linear-gradient(0deg, rgba(8,15,26,.92) 0%, rgba(8,15,26,.45) 55%, rgba(8,15,26,.15) 100%); } }
-.video-band-content { position: relative; z-index: 2; width: 100%; padding-top: 3rem; padding-bottom: 3rem; }
-.video-chip { display: inline-flex; align-items: center; gap: .5rem; font-size: .68rem; font-weight: 700; letter-spacing: .2em;
-  text-transform: uppercase; color: #fff; padding: .4rem .8rem; border: 1px solid rgba(255,255,255,.25); margin-bottom: 1.25rem; }
-.video-chip i { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; display: inline-block; animation: pulse-dot 1.6s ease-in-out infinite; }
-@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+ }
 
 /* ═══════════════════════════════════════════
    HAKKIMIZDA GÖRSEL KOMPOZİSYONU

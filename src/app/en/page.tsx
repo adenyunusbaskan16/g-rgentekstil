@@ -12,7 +12,6 @@ import HotelProductGrid from "@/components/sections/HotelProductGrid";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import { schemaOrganization, schemaWebSite, schemaBreadcrumb, schemaFAQ } from "@/lib/schema";
 import { JsonLd } from "@/components/JsonLd";
-import VideoBand from "@/components/sections/VideoBand";
 import AboutVisual from "@/components/sections/AboutVisual";
 
 export const revalidate = 60; // Her 60 saniyede yenile (TR sayfalarla aynı)
@@ -268,8 +267,6 @@ export default async function EnHomePage() {
           </div>
         </div>
       </section>
-
-      <VideoBand lang="en" />
 
       {/* ── FEATURED PRODUCTS ── */}
       {featured.length > 0 && (
