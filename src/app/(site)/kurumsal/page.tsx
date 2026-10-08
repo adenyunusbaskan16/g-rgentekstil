@@ -299,14 +299,6 @@ export default function KurumsalPage() {
         style={{ background: "var(--navy)", position: "relative", overflow: "hidden" }}
       >
         <div className="div-gold" style={{ position: "absolute", top: 0, left: 0, right: 0 }} />
-        <Image
-          src={IMAGES.cotton}
-          alt=""
-          fill
-          aria-hidden
-          style={{ objectFit: "cover", opacity: 0.06 }}
-          quality={30}
-        />
         <div className="wrap" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
           <span className="eyebrow-center">İletişim</span>
           <h2 className="section-title-light" style={{ marginBottom: "1rem" }}>
