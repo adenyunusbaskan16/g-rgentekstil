@@ -94,7 +94,6 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                     className={`menu-link${isAct(l.href) ? " active" : ""}`}
                   >
-                    <span className="menu-num">{String(i + 1).padStart(2, "0")}</span>
                     {l.label}
                   </Link>
                 </li>
