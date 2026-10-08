@@ -82,7 +82,7 @@ export default function MachineryPage() {
 
       <ImagePair
         a={{ src: IMAGES.machines, alt: "Gurgen Tekstil weaving looms — dobby and jacquard machines" }}
-        b={{ src: IMAGES.factory, alt: "Towel fabric being woven on a loom" }}
+        b={{ src: IMAGES.interior, alt: "Inside the Gurgen Tekstil factory — ready stock and finishing area" }}
       />
 
       <section className="sec" style={{ background: "var(--cream)" }}>

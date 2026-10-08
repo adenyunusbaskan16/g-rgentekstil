@@ -105,7 +105,7 @@ export default function MakineParkuruPage() {
 
       <ImagePair
         a={{ src: IMAGES.machines, alt: "Gürgentekstil dokuma tezgâhları — armürlü ve jakarlı makineler" }}
-        b={{ src: IMAGES.factory, alt: "Dokuma makinesinde havlu kumaş üretimi" }}
+        b={{ src: IMAGES.interior, alt: "Gürgentekstil fabrika içi — hazır stok ve son işlem alanı" }}
       />
 
       {/* Teknik tablo */}
