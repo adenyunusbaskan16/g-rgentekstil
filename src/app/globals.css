@@ -1082,7 +1082,6 @@ textarea.f-input { resize: vertical; min-height: 120px; }
 .eyebrow::before { transition: width .5s ease; }
 .rv-in .eyebrow::before, .rv-in.eyebrow::before { width: 32px; }
 
- }
 
 /* ═══════════════════════════════════════════
    HAKKIMIZDA GÖRSEL KOMPOZİSYONU
