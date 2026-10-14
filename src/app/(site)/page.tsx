@@ -6,7 +6,6 @@ import { PRODUCT_SIZES, getWhatsAppUrl, SITE_URL } from "@/lib/data";
 import { getProducts, getCategories } from "@/lib/products";
 import { HOTEL_PRODUCTS } from "@/lib/hotelProducts";
 import CompactTiles from "@/components/sections/CompactTiles";
-import SplashIntro from "@/components/SplashIntro";
 import { IMAGES, CATEGORY_IMAGES, PRODUCT_FALLBACK_IMAGES } from "@/lib/images";
 import {
   schemaOrganization, schemaLocalBusiness,
@@ -157,7 +156,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <SplashIntro />
       {/* ══════════════════════════════════════
           HERO
       ══════════════════════════════════════ */}
