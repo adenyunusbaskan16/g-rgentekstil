@@ -192,10 +192,11 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
             href="https://hayb.com.tr"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.18em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.18s" }}
+            style={{ fontSize: "0.78rem", fontWeight: 400, letterSpacing: "0.04em", color: "rgba(255,255,255,0.55)", textDecoration: "none", transition: "color 0.18s" }}
             className="hover:!text-white"
+            aria-label="Crafted by HAYB — hayb.com.tr"
           >
-            HAYB
+            Crafted by <strong style={{ fontWeight: 800, letterSpacing: "0.12em" }}>HAYB</strong>
           </a>
         </div>
       </div>
