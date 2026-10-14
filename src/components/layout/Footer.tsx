@@ -73,7 +73,7 @@ export default function Footer({ lang = "tr" }: { lang?: "tr" | "en" }) {
             {/* Logo */}
             <div style={{ marginBottom: "1.25rem" }}>
               <Link href={isEn ? "/en" : "/"} aria-label={isEn ? "Gürgen Tekstil — Home" : "Gürgen Tekstil — Ana Sayfa"} style={{ display: "inline-block" }}>
-                <Image src="/brand/logo-horizontal-light.png" alt="Gürgen Tekstil" width={492} height={140} sizes="210px" style={{ height: 60, width: "auto", display: "block" }} />
+                <Image src="/brand/gts-logo-light.png" alt="GTS Gürgen Tekstil Sanayi" width={500} height={140} sizes="210px" style={{ height: 60, width: "auto", display: "block" }} />
               </Link>
             </div>
 

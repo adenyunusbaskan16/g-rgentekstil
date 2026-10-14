@@ -14,7 +14,7 @@ const BASE_URL =
   process.env.NODE_ENV === "production"
     ? SITE_URL
     : (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000");
-const OG_IMAGE = `${process.env.NODE_ENV === "production" ? SITE_URL : ""}/opengraph-image`;
+const OG_IMAGE = `${process.env.NODE_ENV === "production" ? SITE_URL : ""}/og-image.png`;
 
 /* ════════════════════════════════════════════
    VIEWPORT — theme-color, mobile optimization
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Gürgentekstil — Denizli Havlu Üretimi",
+        alt: "GTS Gürgen Tekstil Sanayi — Denizli havlu üretimi",
         type: "image/png",
       },
     ],

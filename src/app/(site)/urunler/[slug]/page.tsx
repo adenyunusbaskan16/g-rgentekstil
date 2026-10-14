@@ -53,7 +53,7 @@ export async function generateMetadata({
 
   const desc = p.description_tr || autoDescription(p);
   const canonicalUrl = `${SITE_URL}/urunler/${slug}`;
-  const imgUrl = p.image_url ?? `${SITE_URL}/opengraph-image`;
+  const imgUrl = p.image_url ?? `${SITE_URL}/og-image.png`;
 
   const keywords = [
     p.name_tr,

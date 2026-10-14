@@ -20,11 +20,11 @@ export function schemaOrganization() {
     url: BASE,
     logo: {
       "@type": "ImageObject",
-      url: `${BASE}/logo.png`,
+      url: `${BASE}/gts-logo-square.png`,
       width: 512,
       height: 512,
     },
-    image: `${BASE}/opengraph-image`,
+    image: `${BASE}/og-image.png`,
     description:
       "Gürgentekstil, Denizli Merkezefendi'de kurulu havlu üretim tesisiyle el, yüz, ayak, mutfak ve banyo havlusu üretimi ve toptan tedariki sunan bir tekstil üreticisidir.",
     foundingDate: "2010",
@@ -85,7 +85,7 @@ export function schemaLocalBusiness() {
       "Denizli'de havlu üretimi ve toptan tedarik. El, yüz, ayak, mutfak ve banyo havlusu gruplarında hazır stok ve özel üretim.",
     url: BASE,
     telephone: `+90${COMPANY.phone}`,
-    image: `${BASE}/opengraph-image`,
+    image: `${BASE}/og-image.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Sumer Mahallesi 2507 Sokak No:45 B/Z2",
@@ -179,7 +179,7 @@ export function schemaProduct(p: {
   category?: { name_tr: string; name_en?: string };
 }) {
   const url = `${BASE}/urunler/${p.slug}`;
-  const image = p.image_url ?? `${BASE}/opengraph-image`;
+  const image = p.image_url ?? `${BASE}/og-image.png`;
 
   return {
     "@context": "https://schema.org",

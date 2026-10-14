@@ -50,7 +50,7 @@ export async function generateMetadata({
 
   const desc = (p.description_en || autoDescriptionEn(p)).slice(0, 160);
   const canonicalUrl = `${SITE_URL}/en/products/${slug}`;
-  const imgUrl = p.image_url ?? `${SITE_URL}/opengraph-image`;
+  const imgUrl = p.image_url ?? `${SITE_URL}/og-image.png`;
 
   return {
     title: `${p.name_en}${p.size ? ` ${p.size}` : ""} — Wholesale Towel | Gurgen Tekstil`,

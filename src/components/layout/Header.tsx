@@ -49,9 +49,9 @@ export default function Header() {
         <div className="wrap hdr-wrap site-hdr-inner">
           <Link href={isEn ? "/en" : "/"} className="site-logo" aria-label={isEn ? "Gürgen Tekstil — Home" : "Gürgen Tekstil — Ana Sayfa"}>
             <Image
-              src="/brand/logo-horizontal.png"
-              alt="Gürgen Tekstil"
-              width={492}
+              src="/brand/gts-logo.png"
+              alt="GTS Gürgen Tekstil Sanayi"
+              width={500}
               height={140}
               priority
               sizes="200px"

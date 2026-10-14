@@ -1173,40 +1173,50 @@ textarea.f-input { resize: vertical; min-height: 120px; }
 .menu-side .menu-contact { justify-content: center; }
 
 /* ═══════════════════════════════════════════
-   AÇILIŞ ANİMASYONU (yalnızca ana sayfa)
+   AÇILIŞ ANİMASYONU — GTS (yalnızca ana sayfa)
 ═══════════════════════════════════════════ */
 .splash {
   position: fixed; inset: 0; z-index: 1000; background: #fff;
-  display: flex; align-items: center; justify-content: center;
-  animation: splash-out .55s cubic-bezier(.7,0,.2,1) 1.75s forwards;
-  pointer-events: none;
+  display: flex; align-items: center; justify-content: center; pointer-events: none;
+  clip-path: inset(0 0 0 0);
+  animation: splash-curtain .75s cubic-bezier(.76,0,.24,1) 2.05s forwards;
 }
-.splash-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
-.splash-logo {
-  width: min(62vw, 300px); height: auto;
-  opacity: 0; transform: translateY(14px) scale(.94); filter: blur(8px);
-  animation: splash-logo-in 1.05s cubic-bezier(.2,.7,.2,1) .1s forwards;
+.splash-stage {
+  display: flex; flex-direction: column; align-items: center; width: min(78vw, 360px);
+  animation: splash-stage-out .75s cubic-bezier(.76,0,.24,1) 2.05s forwards;
 }
-.splash-inner::after {
-  /* ışık süzmesi */
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.85) 50%, transparent 65%);
-  background-size: 250% 100%; background-position: 120% 0;
-  animation: splash-sheen 1s ease-in-out .85s forwards;
-  mix-blend-mode: screen;
+.splash-tree {
+  width: 100%; height: auto; transform-origin: 50% 100%;
+  clip-path: inset(100% 0 0 0); transform: scale(.92);
+  animation: splash-grow 1.05s cubic-bezier(.22,.8,.2,1) .15s forwards;
 }
-.splash-line {
-  display: block; height: 2px; width: 0; margin-top: 1.4rem; border-radius: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  animation: splash-line 1s cubic-bezier(.2,.7,.2,1) .55s forwards;
+.splash-ground {
+  display: block; height: 2px; width: 100%; margin-top: -2px; background: #111113;
+  transform: scaleX(0); transform-origin: 50% 50%;
+  animation: splash-ground .7s cubic-bezier(.65,0,.35,1) .05s forwards;
 }
-@keyframes splash-logo-in { to { opacity: 1; transform: none; filter: blur(0); } }
-@keyframes splash-line { to { width: min(48vw, 220px); } }
-@keyframes splash-sheen { to { background-position: -120% 0; } }
-@keyframes splash-out { to { opacity: 0; visibility: hidden; transform: scale(1.02); } }
+.splash-gts {
+  width: 52%; height: auto; margin-top: 7%;
+  opacity: 0; transform: translateY(18px); filter: blur(10px);
+  animation: splash-rise .8s cubic-bezier(.2,.75,.2,1) .95s forwards;
+}
+.splash-sub {
+  width: 68%; height: auto; margin-top: 4%;
+  opacity: 0; letter-spacing: 0; transform: scaleX(1.18);
+  animation: splash-sub .8s cubic-bezier(.2,.75,.2,1) 1.25s forwards;
+}
+@keyframes splash-ground { to { transform: scaleX(1); } }
+@keyframes splash-grow   { to { clip-path: inset(0 0 0 0); transform: scale(1); } }
+@keyframes splash-rise   { to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes splash-sub    { to { opacity: 1; transform: scaleX(1); } }
+@keyframes splash-curtain { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
+@keyframes splash-stage-out { to { opacity: 0; transform: translateY(-40px) scale(.97); } }
 @media (prefers-reduced-motion: reduce) {
-  .splash { animation: splash-out .3s ease .6s forwards !important; }
-  .splash-logo { opacity: 1; transform: none; filter: none; animation: none !important; }
+  .splash { animation: splash-fade .3s ease .7s forwards !important; clip-path: none; }
+  .splash-stage, .splash-tree, .splash-ground, .splash-gts, .splash-sub {
+    animation: none !important; opacity: 1; transform: none; filter: none; clip-path: none;
+  }
+  @keyframes splash-fade { to { opacity: 0; visibility: hidden; } }
 }
 
 /* ═══════════════════════════════════════════
