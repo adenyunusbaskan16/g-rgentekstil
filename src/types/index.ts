@@ -43,6 +43,8 @@ export interface Product {
   updated_at: string;
   // JOIN
   category?: ProductCategory;
+  // Hesaplanan ürün kodu (lib/productCodes.ts)
+  code?: string;
 }
 
 // --- Site Ayarı ---

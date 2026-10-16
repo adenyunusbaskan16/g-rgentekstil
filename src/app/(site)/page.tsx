@@ -433,6 +433,7 @@ export default async function HomePage() {
           <CompactTiles
             tiles={featured.map((p, i) => ({
               key: p.id,
+              code: p.code,
               href: `/urunler/${p.slug}`,
               name: p.name_tr,
               meta: [p.category?.name_tr, p.size].filter(Boolean).join(" · "),

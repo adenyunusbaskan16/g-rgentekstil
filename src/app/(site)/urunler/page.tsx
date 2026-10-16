@@ -133,6 +133,7 @@ export default async function UrunlerPage() {
                             {p.is_custom_order && (
                               <span className="badge badge-navy" style={{ position: "absolute", top: "0.75rem", right: "0.75rem" }}>Özel</span>
                             )}
+                            {p.code && <span className="code-badge">Kod {p.code}</span>}
                           </div>
                         </Link>
                         <div style={{ padding: "1.375rem" }}>

@@ -8,6 +8,8 @@ export interface Tile {
   meta?: string;
   image: string;
   alt: string;
+  code?: string;
+  codeLabel?: string;
 }
 
 /**
@@ -21,6 +23,7 @@ export default function CompactTiles({ tiles }: { tiles: Tile[] }) {
         <Link key={t.key} href={t.href} className="tile">
           <div className="tile-img">
             <Image src={t.image} alt={t.alt} fill style={{ objectFit: "cover" }} sizes="(max-width:640px)50vw,(max-width:1024px)33vw,200px" quality={70} />
+            {t.code && <span className="code-badge">{t.codeLabel ?? "Kod"} {t.code}</span>}
           </div>
           <div className="tile-body">
             <p className="tile-name">{t.name}</p>

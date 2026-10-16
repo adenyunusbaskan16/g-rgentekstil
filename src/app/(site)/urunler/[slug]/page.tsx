@@ -113,7 +113,7 @@ export default async function UrunDetayPage({
 
   const description = product.description_tr || autoDescription(product);
   const waMsg = encodeURIComponent(
-    `Merhabalar, İnternet Sitenizden Ulaşıyorum. ${product.name_tr}${product.size ? ` (${product.size})` : ""} hakkında bilgi almak istiyorum.`
+    `Merhabalar, İnternet Sitenizden Ulaşıyorum. ${product.code ? `Ürün kodu ${product.code} — ` : ""}${product.name_tr}${product.size ? ` (${product.size})` : ""} hakkında bilgi almak istiyorum.`
   );
   const waUrl = `https://wa.me/${COMPANY.whatsapp}?text=${waMsg}`;
 
@@ -209,6 +209,7 @@ export default async function UrunDetayPage({
                     <span className="badge badge-navy">Özel Üretim</span>
                   )}
                 </div>
+                {product.code && <span className="code-badge" style={{ zIndex: 2 }}>Kod {product.code}</span>}
               </div>
             </div>
 
@@ -264,6 +265,7 @@ export default async function UrunDetayPage({
                 <div style={{ padding: "0" }}>
                   {(
                     [
+                      product.code         ? { label: "Ürün Kodu",    val: product.code,             icon: null as React.ReactNode } : null,
                       product.size         ? { label: "Ebat",         val: product.size,             icon: <Ruler size={13} color="var(--gold)" /> as React.ReactNode } : null,
                       product.weight_label ? { label: "Gramaj",       val: product.weight_label,      icon: <span style={{ fontSize: "0.6rem", fontWeight: 800, color: "var(--gold)" }}>gr</span> as React.ReactNode } : null,
                       product.sale_unit    ? { label: "Satış Birimi", val: product.sale_unit,         icon: <Package size={13} color="var(--gold)" /> as React.ReactNode } : null,
@@ -423,6 +425,7 @@ export default async function UrunDetayPage({
         name_en:            product.name_en,
         description_tr:     product.description_tr ?? description,
         slug:               product.slug,
+        code:               product.code,
         size:               product.size ?? undefined,
         weight_label:       product.weight_label ?? undefined,
         color_options:      product.color_options ?? [],

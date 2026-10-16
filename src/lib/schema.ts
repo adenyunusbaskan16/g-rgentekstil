@@ -171,6 +171,7 @@ export function schemaProduct(p: {
   description_tr?: string;
   description_en?: string;
   slug: string;
+  code?: string;
   size?: string;
   weight_label?: string;
   color_options?: string[];
@@ -190,7 +191,7 @@ export function schemaProduct(p: {
     description: p.description_tr ?? `${p.name_tr} — %100 pamuktan üretilmiş toptan havlu.`,
     url,
     image: [image],
-    sku: p.slug,
+    sku: p.code ?? p.slug,
     mpn: p.slug,
     brand: {
       "@type": "Brand",

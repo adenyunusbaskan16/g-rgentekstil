@@ -276,6 +276,8 @@ export default async function EnHomePage() {
           <CompactTiles
             tiles={featured.map((p, i) => ({
               key: p.id,
+              code: p.code,
+              codeLabel: "Code",
               href: `/en/products/${p.slug}`,
               name: p.name_en,
               meta: [p.category?.name_en, p.size].filter(Boolean).join(" · "),

@@ -4,6 +4,12 @@
 
 import { createServerClient } from "./supabase";
 import type { Product, ProductCategory } from "@/types";
+import { getProductCodes } from "./productCodes";
+
+async function withCodes<T extends Product>(list: T[]): Promise<T[]> {
+  const codes = await getProductCodes();
+  return list.map((p) => ({ ...p, code: codes[p.id] }));
+}
 
 export async function getProducts(activeOnly = true): Promise<Product[]> {
   const supabase = createServerClient();
@@ -21,7 +27,7 @@ export async function getProducts(activeOnly = true): Promise<Product[]> {
     console.error("getProducts error:", error);
     return [];
   }
-  return (data as Product[]) ?? [];
+  return withCodes((data as Product[]) ?? []);
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
@@ -34,7 +40,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     .single();
 
   if (error) return null;
-  return data as Product;
+  return (await withCodes([data as Product]))[0];
 }
 
 export async function getProductsByCategory(categorySlug: string): Promise<Product[]> {

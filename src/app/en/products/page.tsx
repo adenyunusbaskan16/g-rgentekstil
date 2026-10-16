@@ -87,6 +87,7 @@ export default async function EnProductsPage() {
                         <div className="prod-img-wrap" style={{ aspectRatio: "3/4", background: "#f8f5f0" }}>
                           <Image src={p.image_url ?? PRODUCT_FALLBACK_IMAGES[i % PRODUCT_FALLBACK_IMAGES.length]} alt={p.image_alt_en ?? p.name_en} fill style={{ objectFit: "contain", padding: "0.5rem" }} sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" quality={75} />
                           {p.is_stock_available && <span className="badge badge-gold" style={{ position: "absolute", top: "0.875rem", left: "0.875rem" }}>In Stock</span>}
+                          {p.code && <span className="code-badge">Code {p.code}</span>}
                         </div>
                         <div style={{ padding: "1.375rem" }}>
                           <h3 style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.75rem", fontSize: "0.9375rem", lineHeight: 1.3 }}>{p.name_en}</h3>
